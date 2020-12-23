@@ -5,6 +5,7 @@ package realtime;
  * @version 1.0
  * @todo 2020/12/23 17:44:47
  */
+import bean.PayMoney;
 import org.apache.commons.lang.StringUtils;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
@@ -12,10 +13,11 @@ import org.apache.flink.types.Row;
 import util.StrUtils;
 
 import java.io.Serializable;
+import java.lang.reflect.Field;
 import java.sql.*;
 import java.util.*;
 
-public class ClickhouseSink extends RichSinkFunction<Row> implements Serializable {
+public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serializable {
     private String tablename;
     private String[] tableColums;
     private List<String> types;
@@ -24,7 +26,7 @@ public class ClickhouseSink extends RichSinkFunction<Row> implements Serializabl
     private String password;
     private String[] ips;
     private String drivername = "ru.yandex.clickhouse.ClickHouseDriver";
-    private List<Row> list = new ArrayList<>();
+    private List<PayMoney> list = new ArrayList<>();
     private List<PreparedStatement> preparedStatementList = new ArrayList<>();
     private List<Connection> connectionList = new ArrayList<>();
     private List<Statement> statementList = new ArrayList<>();
@@ -46,13 +48,23 @@ public class ClickhouseSink extends RichSinkFunction<Row> implements Serializabl
     }
 
     // 插入数据
-    public void insertData(List<Row> rows, PreparedStatement preparedStatement,
+    public void insertData(List<PayMoney> payMoneys, PreparedStatement preparedStatement,
                            Connection connection) throws SQLException {
 
-        for (int i = 0; i < rows.size(); ++i) {
-            Row row = rows.get(i);
-            for (int j = 0; j < this.tableColums.length; ++j) {
-                if (null != row.getField(j)) {
+        for (int i = 0; i < payMoneys.size(); ++i) {
+//            Row row = rows.get(i);
+//            for (int j = 0; j < this.tableColums.length; ++j) {
+//                if (null != row.getField(j)) {
+//                    preparedStatement.setObject(j + 1, row.getField(j));
+//
+//                } else {
+//                    preparedStatement.setObject(j + 1, "null");
+//                }
+//            }
+            PayMoney payMoney = payMoneys.get(i);
+            Field[] fields = payMoney.getClass().getDeclaredFields();
+            for (int j = 0; j < fields.length; j++) {
+                if (null != payMoney.get) {
                     preparedStatement.setObject(j + 1, row.getField(j));
 
                 } else {
@@ -202,10 +214,10 @@ public class ClickhouseSink extends RichSinkFunction<Row> implements Serializabl
     }
 
     @Override
-    public void invoke(Row row, Context context) throws Exception {
+    public void invoke(PayMoney payMoney, Context context) throws Exception {
 
         // 轮询写入各个local表，避免单节点数据过多
-        if (null != row) {
+        if (null != payMoney) {
             Random random = new Random();
             int index = random.nextInt(this.ips.length);
             switch (index) {
@@ -216,7 +228,7 @@ public class ClickhouseSink extends RichSinkFunction<Row> implements Serializabl
                         list.clear();
                         this.lastInsertTime = System.currentTimeMillis();
                     } else {
-                        list.add(row);
+                        list.add(payMoney);
                     }
 
                     break;
@@ -226,7 +238,7 @@ public class ClickhouseSink extends RichSinkFunction<Row> implements Serializabl
                         list.clear();
                         this.lastInsertTime = System.currentTimeMillis();
                     } else {
-                        list.add(row);
+                        list.add(payMoney);
                     }
 
 

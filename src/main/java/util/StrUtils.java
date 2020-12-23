@@ -17,8 +17,9 @@ public class StrUtils {
         for (int i = 0; i < tableColums.length; i++) {
             if (i == 0) {
                 tableCoStr.append(tableColums[i]);
+            }else{
+                tableCoStr.append(",").append(tableColums[i]);
             }
-            tableCoStr.append(",").append(tableColums[i]);
         }
 
         insertStr = "insert into " + tablename + " values" + "("+tableCoStr+")";
