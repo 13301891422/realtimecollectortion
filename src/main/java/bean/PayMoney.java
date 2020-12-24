@@ -76,5 +76,19 @@ public class PayMoney implements Serializable {
     public void setDn(String dn) {
         this.dn = dn;
     }
+
+    @Override
+    public String toString() {
+        return "PayMoney{" +
+                "uid='" + uid + '\'' +
+                ", paymoney='" + paymoney + '\'' +
+                ", vip_id='" + vip_id + '\'' +
+                ", updatetime='" + updatetime + '\'' +
+                ", siteid='" + siteid + '\'' +
+                ", dt='" + dt + '\'' +
+                ", dn='" + dn + '\'' +
+                ", createtime='" + createtime + '\'' +
+                '}';
+    }
 }
 

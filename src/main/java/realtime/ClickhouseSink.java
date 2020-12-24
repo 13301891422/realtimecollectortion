@@ -10,11 +10,11 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
 import org.apache.flink.types.Row;
+import util.DataSourceUtil;
 import util.StrUtils;
-
+import java.sql.*;
 import java.io.Serializable;
 import java.lang.reflect.Field;
-import java.sql.*;
 import java.util.*;
 
 public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serializable {
@@ -26,15 +26,16 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
     private String password;
     private String[] ips;
     private String drivername = "ru.yandex.clickhouse.ClickHouseDriver";
+//    private String drivername = "com.mysql.jdbc.Driver";
     private List<PayMoney> list = new ArrayList<>();
     private List<PreparedStatement> preparedStatementList = new ArrayList<>();
     private List<Connection> connectionList = new ArrayList<>();
     private List<Statement> statementList = new ArrayList<>();
 
     private long lastInsertTime = 0L;
-    private long insertCkTimenterval = 4000L;
+    private long insertCkTimenterval = 100000L; //建议4000L
     // 插入的批次
-    private int insertCkBatchSize = 10000;
+    private int insertCkBatchSize = 100;    //建议10000
 
     public ClickhouseSink(String tablename, String username, String password,
                           String[] ips, String[] tableColums, List<String> types, String[] columns) {
@@ -52,25 +53,16 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
                            Connection connection) throws SQLException {
 
         for (int i = 0; i < payMoneys.size(); ++i) {
-//            Row row = rows.get(i);
-//            for (int j = 0; j < this.tableColums.length; ++j) {
-//                if (null != row.getField(j)) {
-//                    preparedStatement.setObject(j + 1, row.getField(j));
-//
-//                } else {
-//                    preparedStatement.setObject(j + 1, "null");
-//                }
-//            }
             PayMoney payMoney = payMoneys.get(i);
-            Field[] fields = payMoney.getClass().getDeclaredFields();
-            for (int j = 0; j < fields.length; j++) {
-                if (null != payMoney.get) {
-                    preparedStatement.setObject(j + 1, row.getField(j));
-
-                } else {
-                    preparedStatement.setObject(j + 1, "null");
-                }
-            }
+//            System.out.println(payMoney.toString());
+            preparedStatement.setString(1,payMoney.getUid());
+            preparedStatement.setString(2,payMoney.getPaymoney());
+            preparedStatement.setString(3,payMoney.getVip_id());
+            preparedStatement.setString(4,payMoney.getUpdatetime());
+            preparedStatement.setString(5,payMoney.getSiteid());
+            preparedStatement.setString(6,payMoney.getDt());
+            preparedStatement.setString(7,payMoney.getDn());
+            preparedStatement.setString(8,payMoney.getCreatetime());
             preparedStatement.addBatch();
         }
 
@@ -180,8 +172,8 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
 //        String create_database_str = "create database if not exists " + this.tablename.split("\\.")[0];
 
         for (String ip : this.ips) {
-            String url = "jdbc:clickhouse://" + ip + ":8123";
-            Connection connection = DriverManager.getConnection(url, this.username, this.password);
+//            String url = "jdbc:clickhouse://" + ip + ":8123";
+            Connection connection = DataSourceUtil.getConnection();
             Statement statement = connection.createStatement();
 
             // 执行创建数据库
@@ -195,7 +187,7 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
             tableAddColumn(statement);
 
             this.statementList.add(statement);
-            PreparedStatement preparedStatement = connection.prepareStatement(insertStr);
+            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO  dataCollectionTest VALUES(?,?,?,?,?,?,?,?)");
             connection.setAutoCommit(false);
             this.preparedStatementList.add(preparedStatement);
             this.connectionList.add(connection);
@@ -240,8 +232,7 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
                     } else {
                         list.add(payMoney);
                     }
-
-
+                    break;
             }
         }
     }
