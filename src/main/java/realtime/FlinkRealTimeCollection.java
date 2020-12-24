@@ -29,6 +29,7 @@ public class FlinkRealTimeCollection {
 
 
 
+
     public static void main(String[] args) {
         String tablename = "dataCollectionTest";
         String username = "";

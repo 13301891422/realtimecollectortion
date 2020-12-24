@@ -16,10 +16,10 @@ public class DataSourceUtil implements Serializable {
     static {
         try {
             Properties props = new Properties();
-            props.setProperty("url", "jdbc:clickhouse://101.37.247.143:8123/default");
-//            props.setProperty("url", "jdbc:mysql://localhost:3306/data_service?autoReconnect=true");
-            props.setProperty("username", "");
-            props.setProperty("password", "");
+//            props.setProperty("url", "jdbc:clickhouse://101.37.247.143:8123/default");
+            props.setProperty("url", "jdbc:mysql://localhost:3306/data_service?autoReconnect=true");
+            props.setProperty("username", "root");
+            props.setProperty("password", "root");
             props.setProperty("initialSize", "3"); //初始化大小
             props.setProperty("maxActive", "20"); //最大连接
             props.setProperty("minIdle", "15");  //最小连接

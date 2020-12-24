@@ -25,15 +25,15 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
     private String username;
     private String password;
     private String[] ips;
-    private String drivername = "ru.yandex.clickhouse.ClickHouseDriver";
-//    private String drivername = "com.mysql.jdbc.Driver";
+//    private String drivername = "ru.yandex.clickhouse.ClickHouseDriver";
+    private String drivername = "com.mysql.jdbc.Driver";
     private List<PayMoney> list = new ArrayList<>();
     private List<PreparedStatement> preparedStatementList = new ArrayList<>();
     private List<Connection> connectionList = new ArrayList<>();
     private List<Statement> statementList = new ArrayList<>();
 
     private long lastInsertTime = 0L;
-    private long insertCkTimenterval = 100000L; //建议4000L
+    private long insertCkTimenterval = 10000L; //建议4000L
     // 插入的批次
     private int insertCkBatchSize = 100;    //建议10000
 
@@ -267,6 +267,7 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
     private boolean isTimeToDoInsert() {
         long currTime = System.currentTimeMillis();
         return currTime - this.lastInsertTime >= this.insertCkTimenterval;
+//        return true;
     }
 }
 
