@@ -6,6 +6,8 @@ import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.functions.RichMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.api.java.utils.ParameterTool;
+import org.apache.flink.connector.jdbc.JdbcConnectionOptions;
+import org.apache.flink.connector.jdbc.JdbcSink;
 import org.apache.flink.streaming.api.datastream.DataStreamSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
@@ -41,7 +43,7 @@ public class FlinkRealTimeCollection {
 
         Properties props = new Properties();
 //      props.setProperty("zookeeper.connect", ZOOKEEPER_HOST);
-        props.setProperty("bootstrap.servers", "192.168.20.27:9092");
+        props.setProperty("bootstrap.servers", "hadoop105:9092");
         props.setProperty("group.id", "test-consumer-group");
 //        ParameterTool.fromArgs();
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
@@ -76,8 +78,25 @@ public class FlinkRealTimeCollection {
                 }
         );
 
-        mapDStream.addSink(new ClickhouseSink(tablename,username,password,ips,tableColums,types,columns));
+//        mapDStream.addSink(new ClickhouseSink(tablename,username,password,ips,tableColums,types,columns));
 
+//        mapDStream.addSink(
+//                JdbcSink.sink(
+//                        "insert into books (id, title, author, price, qty) values (?,?,?,?,?)",
+//                        (ps, t) -> {
+//                            ps.setInt(1, t.id);
+//                            ps.setString(2, t.title);
+//                            ps.setString(3, t.author);
+//                            ps.setDouble(4, t.price);
+//                            ps.setInt(5, t.qty);
+//                        },
+//                        new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
+//                                .withUrl(getDbMetadata().getUrl())
+//                                .withDriverName(getDbMetadata().getDriverClass())
+//                                .build()
+//                ));
+//
+//        )
         try {
             env.execute();
         } catch (Exception e) {
