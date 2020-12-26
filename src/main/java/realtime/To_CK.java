@@ -4,6 +4,7 @@ import bean.PayMoney;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.api.common.functions.MapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
+import org.apache.flink.api.java.utils.ParameterTool;
 import org.apache.flink.connector.jdbc.JdbcConnectionOptions;
 import org.apache.flink.connector.jdbc.JdbcExecutionOptions;
 import org.apache.flink.connector.jdbc.JdbcSink;
@@ -15,42 +16,73 @@ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer010;
 import org.apache.flink.table.api.java.StreamTableEnvironment;
 import util.ParseJsonData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
 class CkSinkBuilder implements JdbcStatementBuilder<PayMoney> {
+
     @Override
-    public void accept(PreparedStatement ps, PayMoney payMoney) throws SQLException{
-        ps.setString(1,payMoney.getUid());
-        ps.setString(2,payMoney.getPaymoney());
-        ps.setString(3,payMoney.getVip_id());
-        ps.setString(4,payMoney.getUpdatetime());
-        ps.setString(5,payMoney.getSiteid());
-        ps.setString(6,payMoney.getDt());
-        ps.setString(7,payMoney.getDn());
-        ps.setString(8,payMoney.getCreatetime());
+    public void accept(PreparedStatement ps, PayMoney payMoney) throws SQLException {
+        if (null != payMoney.getUid()) {
+            ps.setString(1, payMoney.getUid());
+        }else {
+            ps.setString(1, "");
+        }
+
+        if (null != payMoney.getPaymoney()) {
+            ps.setString(2, payMoney.getPaymoney());
+        }else {
+            ps.setString(2, "");
+        }
+
+        ps.setString(2, payMoney.getPaymoney());
+        ps.setString(3, payMoney.getVip_id());
+
+        if (null != payMoney.getUpdatetime()) {
+            ps.setString(4, payMoney.getUpdatetime());
+        }else {
+            ps.setString(4, "");
+        }
+
+        ps.setString(5, payMoney.getSiteid());
+        ps.setString(6, payMoney.getDt());
+        ps.setString(7, payMoney.getDn());
+        ps.setString(8, payMoney.getCreatetime());
     }
 }
 
 class To_CK {
+    private static String BOOTSTRAP_SERVERS = "bootstrap.servers";
+    private static String GROUP_ID = "group.id";
+    private static String TOPIC = "topic";
+    private static final Logger log = LoggerFactory.getLogger(To_CK.class);
+
     public static void main(String[] args) {
         //获得环境
+        ParameterTool params = ParameterTool.fromArgs(args);
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-        env.setParallelism(4); //设置并发为1，防止打印控制台乱序
-        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime); //Flink 默认使用 ProcessingTime 处理,设置成event time
-        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);//Table Env 环境
+        env.getConfig().setGlobalJobParameters(params);
+        env.setParallelism(8); //设置并发为1，防止打印控制台乱序
+//        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime); //Flink 默认使用 ProcessingTime 处理,设置成event time
+//        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);//Table Env 环境
         //从Kafka读取数据
         Properties pros = new Properties();
-        pros.setProperty("bootstrap.servers", "hadoop105:9092");
-        pros.setProperty("group.id", "test");
+        pros.setProperty(BOOTSTRAP_SERVERS, "hadoop105:9092");
+        pros.setProperty(GROUP_ID, "test");
         pros.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("auto.offset.reset", "latest");
-        DataStreamSource<String> sourceDs = env.addSource(new FlinkKafkaConsumer010<>
-                ("memberpaymoney", new SimpleStringSchema(), pros));
-        String sql = "insert into dataCollectionTest values(?,?,?,?,?,?,?,?)";
+        FlinkKafkaConsumer010<String> consumer = new FlinkKafkaConsumer010<>
+                ("memberpaymoney", new SimpleStringSchema(), pros);
+
+        consumer.setStartFromTimestamp(1608739200000L);
+
+        DataStreamSource<String> sourceDs = env.addSource(consumer);
+        String sql = "insert into dataCollectionTest_Replacing values(?,?,?,?,?,?,?,?)";
 
         SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.map(
                 new MapFunction<String, PayMoney>() {
@@ -80,17 +112,21 @@ class To_CK {
 //                        .withUsername("default")
 //                        .build();
 //        ))
-        mapDStream.addSink(
-                JdbcSink.sink(
-                        sql, new CkSinkBuilder(), new JdbcExecutionOptions.Builder().withBatchSize(10).build(),
-                        new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
-                                .withUrl("jdbc:clickhouse://hadoop105:8123/default")
-                                .withUsername("")
-                                .withPassword("")
-                                .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
-                                .build()
-                )
-        );
+
+        mapDStream
+                .addSink(JdbcSink
+                        .sink(sql, new CkSinkBuilder(), new JdbcExecutionOptions
+                                        .Builder()
+                                        .withBatchSize(10000)
+                                        .build(),
+                                new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
+                                        .withUrl("jdbc:clickhouse://hadoop105:8123/default")
+                                        .withUsername("")
+                                        .withPassword("")
+                                        .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
+                                        .build()
+                        )
+                );
 
         try {
             env.execute("输出ClickHouse");
