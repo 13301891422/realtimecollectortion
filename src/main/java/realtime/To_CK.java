@@ -48,7 +48,8 @@ class To_CK {
         pros.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("auto.offset.reset", "latest");
-        DataStreamSource<String> sourceDs = env.addSource(new FlinkKafkaConsumer010<>("memberpaymoney", new SimpleStringSchema(), pros));
+        DataStreamSource<String> sourceDs = env.addSource(new FlinkKafkaConsumer010<>
+                ("memberpaymoney", new SimpleStringSchema(), pros));
         String sql = "insert into dataCollectionTest values(?,?,?,?,?,?,?,?)";
 
         SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.map(
@@ -57,6 +58,7 @@ class To_CK {
                     public PayMoney map(String value) throws Exception {
                         JSONObject payMoneyJson = ParseJsonData.getJsonData(value);
                         PayMoney payMoney = new PayMoney();
+                        assert payMoneyJson != null;
                         payMoney.setUid(payMoneyJson.getString("uid"));
                         payMoney.setPaymoney(payMoneyJson.getString("paymoney"));
                         payMoney.setVip_id(payMoneyJson.getString("vip_id"));
@@ -80,7 +82,7 @@ class To_CK {
 //        ))
         mapDStream.addSink(
                 JdbcSink.sink(
-                        sql, new CkSinkBuilder(), new JdbcExecutionOptions.Builder().withBatchSize(1000).build(),
+                        sql, new CkSinkBuilder(), new JdbcExecutionOptions.Builder().withBatchSize(10).build(),
                         new JdbcConnectionOptions.JdbcConnectionOptionsBuilder()
                                 .withUrl("jdbc:clickhouse://hadoop105:8123/default")
                                 .withUsername("")
