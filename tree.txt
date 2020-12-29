@@ -1,0 +1,403 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------< org.example:realtimecollectortion >------------------
+[INFO] Building realtimecollectortion 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:tree (default-cli) @ realtimecollectortion ---
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-impl/2.0.5/maven-reporting-impl-2.0.5.pom
+Progress (1): 4.1/4.2 kBProgress (1): 4.2 kB                        Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-impl/2.0.5/maven-reporting-impl-2.0.5.pom (4.2 kB at 2.5 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-doxia-tools/1.0.2/maven-doxia-tools-1.0.2.pom
+Progress (1): 4.1/5.9 kBProgress (1): 5.9 kB                        Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-doxia-tools/1.0.2/maven-doxia-tools-1.0.2.pom (5.9 kB at 22 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.pom
+Progress (1): 3.4 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.pom (3.4 kB at 14 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.pom
+Progress (1): 2.2 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.pom (2.2 kB at 11 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.pom
+Progress (1): 3.1 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.pom (3.1 kB at 14 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-dependency-analyzer/1.4/maven-dependency-analyzer-1.4.pom
+Progress (1): 4.1/5.2 kBProgress (1): 5.2 kB                        Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-dependency-analyzer/1.4/maven-dependency-analyzer-1.4.pom (5.2 kB at 23 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.0.5/maven-project-2.0.5.pom
+Progress (1): 1.8 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-project/2.0.5/maven-project-2.0.5.pom (1.8 kB at 4.4 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/2.0.5/maven-2.0.5.pom
+Progress (1): 4.1/5.7 kBProgress (1): 5.7 kB                        Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven/2.0.5/maven-2.0.5.pom (5.7 kB at 27 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.0.5/maven-settings-2.0.5.pom
+Progress (1): 1.7 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-settings/2.0.5/maven-settings-2.0.5.pom (1.7 kB at 8.3 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom
+Progress (1): 2.7 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-model/2.0.5/maven-model-2.0.5.pom (2.7 kB at 14 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.0.5/maven-profile-2.0.5.pom
+Progress (1): 1.7 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-profile/2.0.5/maven-profile-2.0.5.pom (1.7 kB at 8.2 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.0.5/maven-artifact-manager-2.0.5.pom
+Progress (1): 1.8 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact-manager/2.0.5/maven-artifact-manager-2.0.5.pom (1.8 kB at 7.9 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.0.5/maven-repository-metadata-2.0.5.pom
+Progress (1): 1.5 kB                    Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-repository-metadata/2.0.5/maven-repository-metadata-2.0.5.pom (1.5 kB at 6.8 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom
+Progress (1): 727 B                   Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/maven-artifact/2.0.5/maven-artifact-2.0.5.pom (727 B at 3.6 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-doxia-tools/1.0.2/maven-doxia-tools-1.0.2.jar
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.jar
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.jar
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.jar
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-impl/2.0.5/maven-reporting-impl-2.0.5.jar
+Progress (1): 0.9/41 kBProgress (2): 0.9/41 kB | 0.9/21 kBProgress (3): 0.9/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 2.3/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 3.7/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 5.1/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 6.5/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 7.9/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 9.3/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 11/41 kB | 0.9/21 kB | 0.9/58 kB Progress (3): 12/41 kB | 0.9/21 kB | 0.9/58 kBProgress (3): 14/41 kB | 0.9/21 kB | 0.9/58 kBProgress (4): 14/41 kB | 0.9/21 kB | 0.9/58 kB | 0.9/186 kBProgress (4): 14/41 kB | 0.9/21 kB | 0.9/58 kB | 2.3/186 kBProgress (4): 14/41 kB | 0.9/21 kB | 0.9/58 kB | 3.7/186 kBProgress (4): 14/41 kB | 0.9/21 kB | 2.3/58 kB | 3.7/186 kBProgress (4): 14/41 kB | 2.3/21 kB | 2.3/58 kB | 3.7/186 kBProgress (4): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 3.7/186 kBProgress (4): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 5.1/186 kBProgress (5): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 5.1/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 6.5/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 7.9/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 9.3/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 11/186 kB | 0.9/232 kB Progress (5): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 12/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 2.3/21 kB | 3.7/58 kB | 14/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 2.3/21 kB | 5.1/58 kB | 14/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 2.3/21 kB | 6.5/58 kB | 14/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 3.7/21 kB | 6.5/58 kB | 14/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 3.7/21 kB | 7.9/58 kB | 14/186 kB | 0.9/232 kBProgress (5): 14/41 kB | 3.7/21 kB | 7.9/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 14/41 kB | 3.7/21 kB | 9.3/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 14/41 kB | 5.1/21 kB | 9.3/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 14/41 kB | 6.5/21 kB | 9.3/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 14/41 kB | 7.9/21 kB | 9.3/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 14/41 kB | 9.3/21 kB | 9.3/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 14/41 kB | 11/21 kB | 9.3/58 kB | 14/186 kB | 2.3/232 kB Progress (5): 14/41 kB | 12/21 kB | 9.3/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 14/41 kB | 12/21 kB | 11/58 kB | 14/186 kB | 2.3/232 kB Progress (5): 14/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 15/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 16/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 18/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 19/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 21/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 22/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 23/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 25/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 26/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 28/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 29/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 30/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 32/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 33/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 35/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 36/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 37/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 39/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 40/41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 14/186 kB | 2.3/232 kB   Progress (5): 41 kB | 12/21 kB | 12/58 kB | 15/186 kB | 2.3/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 16/186 kB | 2.3/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 16/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 18/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 19/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 21/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 22/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 23/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 25/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 26/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 28/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 29/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 30/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 32/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 33/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 35/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 36/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 37/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 39/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 40/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 12/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 14/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 15/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 16/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 18/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 19/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 21/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 22/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 23/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 25/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 26/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 28/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 29/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 30/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 32/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 33/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 35/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 36/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 37/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 39/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 40/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 42/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 43/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 44/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 46/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 47/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 49/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 50/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 51/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 12/21 kB | 53/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 14/21 kB | 53/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 14/21 kB | 54/58 kB | 42/186 kB | 3.7/232 kBProgress (5): 41 kB | 14/21 kB | 54/58 kB | 42/186 kB | 5.1/232 kBProgress (5): 41 kB | 14/21 kB | 54/58 kB | 42/186 kB | 6.5/232 kBProgress (5): 41 kB | 14/21 kB | 56/58 kB | 42/186 kB | 6.5/232 kBProgress (5): 41 kB | 15/21 kB | 56/58 kB | 42/186 kB | 6.5/232 kBProgress (5): 41 kB | 15/21 kB | 57/58 kB | 42/186 kB | 6.5/232 kBProgress (5): 41 kB | 15/21 kB | 57/58 kB | 43/186 kB | 6.5/232 kBProgress (5): 41 kB | 15/21 kB | 57/58 kB | 43/186 kB | 7.9/232 kBProgress (5): 41 kB | 15/21 kB | 57/58 kB | 44/186 kB | 7.9/232 kBProgress (5): 41 kB | 15/21 kB | 57/58 kB | 44/186 kB | 9.3/232 kBProgress (5): 41 kB | 15/21 kB | 58 kB | 44/186 kB | 9.3/232 kB   Progress (5): 41 kB | 16/21 kB | 58 kB | 44/186 kB | 9.3/232 kBProgress (5): 41 kB | 18/21 kB | 58 kB | 44/186 kB | 9.3/232 kBProgress (5): 41 kB | 18/21 kB | 58 kB | 44/186 kB | 11/232 kB Progress (5): 41 kB | 18/21 kB | 58 kB | 44/186 kB | 12/232 kBProgress (5): 41 kB | 18/21 kB | 58 kB | 44/186 kB | 14/232 kBProgress (5): 41 kB | 18/21 kB | 58 kB | 44/186 kB | 15/232 kBProgress (5): 41 kB | 18/21 kB | 58 kB | 46/186 kB | 15/232 kBProgress (5): 41 kB | 18/21 kB | 58 kB | 46/186 kB | 16/232 kBProgress (5): 41 kB | 19/21 kB | 58 kB | 46/186 kB | 16/232 kBProgress (5): 41 kB | 19/21 kB | 58 kB | 46/186 kB | 18/232 kBProgress (5): 41 kB | 19/21 kB | 58 kB | 47/186 kB | 18/232 kBProgress (5): 41 kB | 19/21 kB | 58 kB | 47/186 kB | 19/232 kBProgress (5): 41 kB | 21/21 kB | 58 kB | 47/186 kB | 19/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 19/232 kB   Progress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 21/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 22/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 23/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 25/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 26/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 28/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 29/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 30/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 32/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 33/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 35/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 36/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 37/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 47/186 kB | 39/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 49/186 kB | 39/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 49/186 kB | 40/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 49/186 kB | 42/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 49/186 kB | 43/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 50/186 kB | 43/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 51/186 kB | 43/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 53/186 kB | 43/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 54/186 kB | 43/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 54/186 kB | 44/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 56/186 kB | 44/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 56/186 kB | 46/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 57/186 kB | 46/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 57/186 kB | 47/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 57/186 kB | 49/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 58/186 kB | 49/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 58/186 kB | 50/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 60/186 kB | 50/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 61/186 kB | 50/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 63/186 kB | 50/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 64/186 kB | 50/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 64/186 kB | 51/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 65/186 kB | 51/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 65/186 kB | 53/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 65/186 kB | 54/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 65/186 kB | 56/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 65/186 kB | 57/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 65/186 kB | 58/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 67/186 kB | 58/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 67/186 kB | 60/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 68/186 kB | 60/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 68/186 kB | 61/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 70/186 kB | 61/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 70/186 kB | 63/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 71/186 kB | 63/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 71/186 kB | 64/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 71/186 kB | 65/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 71/186 kB | 67/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 72/186 kB | 67/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 72/186 kB | 68/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 74/186 kB | 68/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 74/186 kB | 70/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 75/186 kB | 70/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 75/186 kB | 71/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 77/186 kB | 71/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 77/186 kB | 72/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 78/186 kB | 72/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 78/186 kB | 74/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 79/186 kB | 74/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 79/186 kB | 75/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 81/186 kB | 75/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 81/186 kB | 77/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 82/186 kB | 77/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 82/186 kB | 78/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 84/186 kB | 78/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 84/186 kB | 79/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 85/186 kB | 79/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 85/186 kB | 81/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 86/186 kB | 81/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 86/186 kB | 82/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 86/186 kB | 84/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 86/186 kB | 85/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 88/186 kB | 85/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 88/186 kB | 86/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 89/186 kB | 86/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 89/186 kB | 88/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 91/186 kB | 88/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 91/186 kB | 89/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 92/186 kB | 89/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 92/186 kB | 91/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 91/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 92/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 93/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 95/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 96/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 98/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 99/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 100/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 102/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 103/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 105/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 93/186 kB | 106/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 95/186 kB | 106/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 95/186 kB | 107/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 96/186 kB | 107/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 96/186 kB | 109/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 96/186 kB | 110/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 98/186 kB | 110/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 99/186 kB | 110/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 100/186 kB | 110/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 102/186 kB | 110/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 103/186 kB | 110/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 103/186 kB | 112/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 105/186 kB | 112/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 105/186 kB | 113/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 106/186 kB | 113/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 106/186 kB | 114/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 107/186 kB | 114/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 107/186 kB | 116/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 109/186 kB | 116/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 109/186 kB | 117/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 110/186 kB | 117/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 110/186 kB | 119/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 112/186 kB | 119/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 113/186 kB | 119/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 114/186 kB | 119/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 114/186 kB | 120/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 116/186 kB | 120/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 116/186 kB | 121/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 117/186 kB | 121/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 117/186 kB | 123/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 119/186 kB | 123/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 119/186 kB | 124/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 120/186 kB | 124/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 120/186 kB | 126/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 121/186 kB | 126/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 121/186 kB | 127/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 123/186 kB | 127/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 123/186 kB | 128/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 124/186 kB | 128/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 124/186 kB | 130/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 124/186 kB | 131/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 126/186 kB | 131/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 126/186 kB | 133/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 127/186 kB | 133/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 127/186 kB | 134/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 128/186 kB | 134/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 128/186 kB | 135/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 130/186 kB | 135/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 130/186 kB | 137/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 131/186 kB | 137/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 131/186 kB | 138/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 133/186 kB | 138/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 133/186 kB | 140/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 134/186 kB | 140/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 134/186 kB | 141/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 135/186 kB | 141/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 135/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 137/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 138/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 140/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 141/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 142/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 144/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 145/186 kB | 142/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 145/186 kB | 144/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 147/186 kB | 144/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 147/186 kB | 145/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 148/186 kB | 145/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 148/186 kB | 147/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 149/186 kB | 147/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 149/186 kB | 148/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 151/186 kB | 148/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 151/186 kB | 149/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 152/186 kB | 149/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 152/186 kB | 151/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 154/186 kB | 151/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 154/186 kB | 152/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 155/186 kB | 152/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 155/186 kB | 154/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 156/186 kB | 154/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 156/186 kB | 155/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 158/186 kB | 155/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 158/186 kB | 156/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 159/186 kB | 156/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 159/186 kB | 158/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 161/186 kB | 158/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 161/186 kB | 159/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 162/186 kB | 159/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 162/186 kB | 161/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 163/186 kB | 161/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 163/186 kB | 162/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 165/186 kB | 162/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 165/186 kB | 163/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 166/186 kB | 163/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 166/186 kB | 165/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 168/186 kB | 165/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 168/186 kB | 166/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 169/186 kB | 166/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 169/186 kB | 168/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 170/186 kB | 168/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 170/186 kB | 169/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 172/186 kB | 169/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 172/186 kB | 170/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 173/186 kB | 170/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 173/186 kB | 172/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 175/186 kB | 172/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 175/186 kB | 173/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 176/186 kB | 173/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 176/186 kB | 175/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 177/186 kB | 175/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 177/186 kB | 176/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 179/186 kB | 176/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 179/186 kB | 177/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 180/186 kB | 177/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 180/186 kB | 179/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 182/186 kB | 179/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 182/186 kB | 180/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 183/186 kB | 180/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 183/186 kB | 182/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 182/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 183/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 184/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 186/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 187/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 189/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 190/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 184/186 kB | 191/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186/186 kB | 191/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186/186 kB | 193/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 193/232 kB    Progress (5): 41 kB | 21 kB | 58 kB | 186 kB | 194/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 196/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 197/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 198/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 200/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 201/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 203/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 204/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 205/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 207/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 208/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 210/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 211/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 212/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 214/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 215/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 217/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 218/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 219/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 221/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 222/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 224/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 225/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 226/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 228/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 229/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 231/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 232/232 kBProgress (5): 41 kB | 21 kB | 58 kB | 186 kB | 232 kB                                                         Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-doxia-tools/1.0.2/maven-doxia-tools-1.0.2.jar (41 kB at 63 kB/s)
+Downloading from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-dependency-analyzer/1.4/maven-dependency-analyzer-1.4.jar
+Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.6/plexus-io-2.0.6.jar (58 kB at 88 kB/s)
+Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/reporting/maven-reporting-impl/2.0.5/maven-reporting-impl-2.0.5.jar (21 kB at 31 kB/s)
+Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.3/plexus-archiver-2.3.jar (186 kB at 255 kB/s)
+Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.9/plexus-utils-3.0.9.jar (232 kB at 315 kB/s)
+Progress (1): 0.9/27 kBProgress (1): 2.3/27 kBProgress (1): 3.7/27 kBProgress (1): 5.1/27 kBProgress (1): 6.5/27 kBProgress (1): 7.9/27 kBProgress (1): 9.3/27 kBProgress (1): 11/27 kB Progress (1): 12/27 kBProgress (1): 14/27 kBProgress (1): 15/27 kBProgress (1): 16/27 kBProgress (1): 18/27 kBProgress (1): 19/27 kBProgress (1): 21/27 kBProgress (1): 22/27 kBProgress (1): 23/27 kBProgress (1): 25/27 kBProgress (1): 26/27 kBProgress (1): 27 kB                      Downloaded from nexus-aliyun: http://maven.aliyun.com/nexus/content/groups/public/org/apache/maven/shared/maven-dependency-analyzer/1.4/maven-dependency-analyzer-1.4.jar (27 kB at 28 kB/s)
+[INFO] org.example:realtimecollectortion:jar:1.0-SNAPSHOT
+[INFO] +- org.apache.flink:flink-clients_2.11:jar:1.12.0:compile
+[INFO] |  +- org.apache.flink:flink-core:jar:1.12.0:compile
+[INFO] |  |  +- org.apache.flink:flink-annotations:jar:1.12.0:compile
+[INFO] |  |  |  +- (org.slf4j:slf4j-api:jar:1.7.15:compile - omitted for duplicate)
+[INFO] |  |  |  +- (com.google.code.findbugs:jsr305:jar:1.3.9:compile - omitted for duplicate)
+[INFO] |  |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- org.apache.flink:flink-metrics-core:jar:1.12.0:compile
+[INFO] |  |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- org.apache.flink:flink-shaded-asm-7:jar:7.1-12.0:compile
+[INFO] |  |  +- org.apache.commons:commons-lang3:jar:3.3.2:compile
+[INFO] |  |  +- com.esotericsoftware.kryo:kryo:jar:2.24.0:compile
+[INFO] |  |  |  +- com.esotericsoftware.minlog:minlog:jar:1.2:compile
+[INFO] |  |  |  \- org.objenesis:objenesis:jar:2.1:compile
+[INFO] |  |  +- (commons-collections:commons-collections:jar:3.2.2:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.commons:commons-compress:jar:1.20:compile - omitted for conflict with 1.4.1)
+[INFO] |  |  +- org.apache.flink:flink-shaded-guava:jar:18.0-12.0:compile
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.15:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.code.findbugs:jsr305:jar:1.3.9:compile - omitted for duplicate)
+[INFO] |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  +- org.apache.flink:flink-runtime_2.11:jar:1.12.0:compile
+[INFO] |  |  +- (org.apache.flink:flink-core:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-java:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- org.apache.flink:flink-queryable-state-client-java:jar:1.12.0:compile
+[INFO] |  |  |  +- (org.apache.flink:flink-shaded-netty:jar:4.1.49.Final-12.0:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.apache.flink:flink-shaded-guava:jar:18.0-12.0:compile - omitted for duplicate)
+[INFO] |  |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- org.apache.flink:flink-hadoop-fs:jar:1.12.0:compile
+[INFO] |  |  |  +- (org.apache.flink:flink-core:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (commons-io:commons-io:jar:2.7:compile - omitted for conflict with 2.4)
+[INFO] |  |  +- org.apache.flink:flink-shaded-netty:jar:4.1.49.Final-12.0:compile
+[INFO] |  |  +- (org.apache.flink:flink-shaded-guava:jar:18.0-12.0:compile - omitted for duplicate)
+[INFO] |  |  +- org.apache.flink:flink-shaded-jackson:jar:2.10.1-12.0:compile
+[INFO] |  |  +- org.apache.flink:flink-shaded-zookeeper-3:jar:3.4.14-12.0:compile
+[INFO] |  |  +- (org.apache.commons:commons-lang3:jar:3.3.2:compile - omitted for duplicate)
+[INFO] |  |  +- (commons-cli:commons-cli:jar:1.3.1:compile - omitted for duplicate)
+[INFO] |  |  +- org.javassist:javassist:jar:3.24.0-GA:compile
+[INFO] |  |  +- org.scala-lang:scala-library:jar:2.11.12:compile
+[INFO] |  |  +- com.typesafe.akka:akka-actor_2.11:jar:2.5.21:compile
+[INFO] |  |  |  +- com.typesafe:config:jar:1.3.3:compile
+[INFO] |  |  |  \- org.scala-lang.modules:scala-java8-compat_2.11:jar:0.7.0:compile
+[INFO] |  |  +- com.typesafe.akka:akka-stream_2.11:jar:2.5.21:compile
+[INFO] |  |  |  +- (com.typesafe.akka:akka-actor_2.11:jar:2.5.21:compile - omitted for duplicate)
+[INFO] |  |  |  +- (com.typesafe.akka:akka-protobuf_2.11:jar:2.5.21:compile - omitted for duplicate)
+[INFO] |  |  |  +- org.reactivestreams:reactive-streams:jar:1.0.2:compile
+[INFO] |  |  |  \- com.typesafe:ssl-config-core_2.11:jar:0.3.7:compile
+[INFO] |  |  |     \- org.scala-lang.modules:scala-parser-combinators_2.11:jar:1.1.1:compile
+[INFO] |  |  +- com.typesafe.akka:akka-protobuf_2.11:jar:2.5.21:compile
+[INFO] |  |  +- com.typesafe.akka:akka-slf4j_2.11:jar:2.5.21:compile
+[INFO] |  |  |  +- (com.typesafe.akka:akka-actor_2.11:jar:2.5.21:compile - omitted for duplicate)
+[INFO] |  |  |  \- (org.slf4j:slf4j-api:jar:1.7.25:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  +- org.clapper:grizzled-slf4j_2.11:jar:1.3.2:compile
+[INFO] |  |  |  \- (org.slf4j:slf4j-api:jar:1.7.9:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  +- com.github.scopt:scopt_2.11:jar:3.5.0:compile
+[INFO] |  |  +- org.xerial.snappy:snappy-java:jar:1.1.4:compile
+[INFO] |  |  +- com.twitter:chill_2.11:jar:0.7.6:compile
+[INFO] |  |  |  \- com.twitter:chill-java:jar:0.7.6:compile
+[INFO] |  |  +- org.lz4:lz4-java:jar:1.6.0:compile
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.15:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.code.findbugs:jsr305:jar:1.3.9:compile - omitted for duplicate)
+[INFO] |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  +- org.apache.flink:flink-optimizer_2.11:jar:1.12.0:compile
+[INFO] |  |  +- (org.apache.flink:flink-core:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-runtime_2.11:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-java:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-shaded-guava:jar:18.0-12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-shaded-jackson:jar:2.10.1-12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.15:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.code.findbugs:jsr305:jar:1.3.9:compile - omitted for duplicate)
+[INFO] |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  +- org.apache.flink:flink-java:jar:1.12.0:compile
+[INFO] |  |  +- (org.apache.flink:flink-core:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.commons:commons-lang3:jar:3.3.2:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.commons:commons-math3:jar:3.5:compile - omitted for conflict with 3.1.1)
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.15:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.code.findbugs:jsr305:jar:1.3.9:compile - omitted for duplicate)
+[INFO] |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  +- commons-cli:commons-cli:jar:1.3.1:compile
+[INFO] |  +- org.apache.flink:flink-streaming-java_2.11:jar:1.12.0:compile
+[INFO] |  |  +- (org.apache.flink:flink-core:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- org.apache.flink:flink-file-sink-common:jar:1.12.0:compile
+[INFO] |  |  |  +- (org.apache.flink:flink-core:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-runtime_2.11:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-java:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.flink:flink-shaded-guava:jar:18.0-12.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.commons:commons-math3:jar:3.5:compile - omitted for duplicate)
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.15:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.code.findbugs:jsr305:jar:1.3.9:compile - omitted for duplicate)
+[INFO] |  |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] |  +- org.slf4j:slf4j-api:jar:1.7.15:compile
+[INFO] |  +- com.google.code.findbugs:jsr305:jar:1.3.9:compile
+[INFO] |  \- org.apache.flink:force-shading:jar:1.12.0:compile
+[INFO] +- org.apache.flink:flink-connector-kafka-0.11_2.11:jar:1.10.0:compile
+[INFO] |  +- org.apache.flink:flink-connector-kafka-0.10_2.11:jar:1.10.0:compile
+[INFO] |  |  +- org.apache.flink:flink-connector-kafka-0.9_2.11:jar:1.10.0:compile
+[INFO] |  |  |  +- org.apache.flink:flink-connector-kafka-base_2.11:jar:1.10.0:compile
+[INFO] |  |  |  |  \- (org.apache.flink:force-shading:jar:1.10.0:compile - omitted for conflict with 1.12.0)
+[INFO] |  |  |  \- (org.apache.flink:force-shading:jar:1.10.0:compile - omitted for conflict with 1.12.0)
+[INFO] |  |  \- (org.apache.flink:force-shading:jar:1.10.0:compile - omitted for conflict with 1.12.0)
+[INFO] |  +- org.apache.kafka:kafka-clients:jar:0.11.0.2:compile
+[INFO] |  |  +- (net.jpountz.lz4:lz4:jar:1.3.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.xerial.snappy:snappy-java:jar:1.1.2.6:compile - omitted for conflict with 1.1.4)
+[INFO] |  |  \- (org.slf4j:slf4j-api:jar:1.7.25:compile - omitted for conflict with 1.7.15)
+[INFO] |  \- (org.apache.flink:force-shading:jar:1.10.0:compile - omitted for conflict with 1.12.0)
+[INFO] +- mysql:mysql-connector-java:jar:5.1.44:compile
+[INFO] +- de.unkrig.jdisasm:jdisasm:jar:1.0.5:compile
+[INFO] |  \- de.unkrig.commons:commons-nullanalysis:jar:1.2.13:compile
+[INFO] +- com.alibaba:fastjson:jar:1.2.68:compile
+[INFO] +- org.apache.flink:flink-statebackend-rocksdb_2.11:jar:1.10.0:compile
+[INFO] |  +- com.data-artisans:frocksdbjni:jar:5.17.2-artisans-2.0:compile
+[INFO] |  +- (org.slf4j:slf4j-api:jar:1.7.15:compile - omitted for duplicate)
+[INFO] |  +- (com.google.code.findbugs:jsr305:jar:1.3.9:compile - omitted for duplicate)
+[INFO] |  \- (org.apache.flink:force-shading:jar:1.10.0:compile - omitted for conflict with 1.12.0)
+[INFO] +- org.apache.flink:flink-connector-filesystem_2.11:jar:1.10.0:compile
+[INFO] |  \- (org.apache.flink:force-shading:jar:1.10.0:compile - omitted for conflict with 1.12.0)
+[INFO] +- org.apache.hadoop:hadoop-hdfs:jar:2.7.2:compile
+[INFO] |  +- (com.google.guava:guava:jar:11.0.2:compile - omitted for conflict with 21.0)
+[INFO] |  +- org.mortbay.jetty:jetty:jar:6.1.26:compile
+[INFO] |  |  \- (org.mortbay.jetty:jetty-util:jar:6.1.26:compile - omitted for duplicate)
+[INFO] |  +- org.mortbay.jetty:jetty-util:jar:6.1.26:compile
+[INFO] |  +- com.sun.jersey:jersey-core:jar:1.9:compile
+[INFO] |  +- com.sun.jersey:jersey-server:jar:1.9:compile
+[INFO] |  |  +- asm:asm:jar:3.1:compile
+[INFO] |  |  \- (com.sun.jersey:jersey-core:jar:1.9:compile - omitted for duplicate)
+[INFO] |  +- (commons-cli:commons-cli:jar:1.2:compile - omitted for conflict with 1.3.1)
+[INFO] |  +- commons-codec:commons-codec:jar:1.4:compile
+[INFO] |  +- commons-io:commons-io:jar:2.4:compile
+[INFO] |  +- commons-lang:commons-lang:jar:2.6:compile
+[INFO] |  +- commons-logging:commons-logging:jar:1.1.3:compile
+[INFO] |  +- commons-daemon:commons-daemon:jar:1.0.13:compile
+[INFO] |  +- log4j:log4j:jar:1.2.17:compile
+[INFO] |  +- com.google.protobuf:protobuf-java:jar:2.5.0:compile
+[INFO] |  +- javax.servlet:servlet-api:jar:2.5:compile
+[INFO] |  +- org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile
+[INFO] |  +- org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:compile
+[INFO] |  |  \- (org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile - omitted for duplicate)
+[INFO] |  +- xmlenc:xmlenc:jar:0.52:compile
+[INFO] |  +- io.netty:netty:jar:3.6.2.Final:compile
+[INFO] |  +- io.netty:netty-all:jar:4.0.23.Final:compile
+[INFO] |  +- xerces:xercesImpl:jar:2.9.1:compile
+[INFO] |  |  \- xml-apis:xml-apis:jar:1.3.04:compile
+[INFO] |  +- org.apache.htrace:htrace-core:jar:3.1.0-incubating:compile
+[INFO] |  \- org.fusesource.leveldbjni:leveldbjni-all:jar:1.8:compile
+[INFO] +- org.apache.hadoop:hadoop-common:jar:2.7.2:compile
+[INFO] |  +- org.apache.hadoop:hadoop-annotations:jar:2.7.2:compile
+[INFO] |  |  \- jdk.tools:jdk.tools:jar:1.8:system
+[INFO] |  +- (com.google.guava:guava:jar:11.0.2:compile - omitted for duplicate)
+[INFO] |  +- (commons-cli:commons-cli:jar:1.2:compile - omitted for conflict with 1.3.1)
+[INFO] |  +- org.apache.commons:commons-math3:jar:3.1.1:compile
+[INFO] |  +- (xmlenc:xmlenc:jar:0.52:compile - omitted for duplicate)
+[INFO] |  +- commons-httpclient:commons-httpclient:jar:3.1:compile
+[INFO] |  |  +- (commons-logging:commons-logging:jar:1.0.4:compile - omitted for conflict with 1.1.3)
+[INFO] |  |  \- (commons-codec:commons-codec:jar:1.2:compile - omitted for conflict with 1.4)
+[INFO] |  +- (commons-codec:commons-codec:jar:1.4:compile - omitted for duplicate)
+[INFO] |  +- (commons-io:commons-io:jar:2.4:compile - omitted for duplicate)
+[INFO] |  +- commons-net:commons-net:jar:3.1:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2.2:compile
+[INFO] |  +- (javax.servlet:servlet-api:jar:2.5:compile - omitted for duplicate)
+[INFO] |  +- (org.mortbay.jetty:jetty:jar:6.1.26:compile - omitted for duplicate)
+[INFO] |  +- (org.mortbay.jetty:jetty-util:jar:6.1.26:compile - omitted for duplicate)
+[INFO] |  +- javax.servlet.jsp:jsp-api:jar:2.1:runtime
+[INFO] |  +- (com.sun.jersey:jersey-core:jar:1.9:compile - omitted for duplicate)
+[INFO] |  +- com.sun.jersey:jersey-json:jar:1.9:compile
+[INFO] |  |  +- org.codehaus.jettison:jettison:jar:1.1:compile
+[INFO] |  |  +- com.sun.xml.bind:jaxb-impl:jar:2.2.3-1:compile
+[INFO] |  |  |  \- javax.xml.bind:jaxb-api:jar:2.2.2:compile
+[INFO] |  |  |     +- javax.xml.stream:stax-api:jar:1.0-2:compile
+[INFO] |  |  |     \- (javax.activation:activation:jar:1.1:compile - omitted for duplicate)
+[INFO] |  |  +- (org.codehaus.jackson:jackson-core-asl:jar:1.8.3:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  +- (org.codehaus.jackson:jackson-mapper-asl:jar:1.8.3:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  +- org.codehaus.jackson:jackson-jaxrs:jar:1.8.3:compile
+[INFO] |  |  |  +- (org.codehaus.jackson:jackson-core-asl:jar:1.8.3:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  |  \- (org.codehaus.jackson:jackson-mapper-asl:jar:1.8.3:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  +- org.codehaus.jackson:jackson-xc:jar:1.8.3:compile
+[INFO] |  |  |  +- (org.codehaus.jackson:jackson-core-asl:jar:1.8.3:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  |  \- (org.codehaus.jackson:jackson-mapper-asl:jar:1.8.3:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  \- (com.sun.jersey:jersey-core:jar:1.9:compile - omitted for duplicate)
+[INFO] |  +- (com.sun.jersey:jersey-server:jar:1.9:compile - omitted for duplicate)
+[INFO] |  +- (commons-logging:commons-logging:jar:1.1.3:compile - omitted for duplicate)
+[INFO] |  +- (log4j:log4j:jar:1.2.17:compile - omitted for duplicate)
+[INFO] |  +- net.java.dev.jets3t:jets3t:jar:0.9.0:compile
+[INFO] |  |  +- (commons-codec:commons-codec:jar:1.4:compile - omitted for duplicate)
+[INFO] |  |  +- (commons-logging:commons-logging:jar:1.1.1:compile - omitted for conflict with 1.1.3)
+[INFO] |  |  +- (org.apache.httpcomponents:httpclient:jar:4.1.2:compile - omitted for conflict with 4.5.3)
+[INFO] |  |  +- (org.apache.httpcomponents:httpcore:jar:4.1.2:compile - omitted for conflict with 4.4.6)
+[INFO] |  |  \- com.jamesmurty.utils:java-xmlbuilder:jar:0.4:compile
+[INFO] |  +- (commons-lang:commons-lang:jar:2.6:compile - omitted for duplicate)
+[INFO] |  +- commons-configuration:commons-configuration:jar:1.6:compile
+[INFO] |  |  +- (commons-collections:commons-collections:jar:3.2.1:compile - omitted for conflict with 3.2.2)
+[INFO] |  |  +- (commons-lang:commons-lang:jar:2.4:compile - omitted for conflict with 2.6)
+[INFO] |  |  +- (commons-logging:commons-logging:jar:1.1.1:compile - omitted for conflict with 1.1.3)
+[INFO] |  |  +- commons-digester:commons-digester:jar:1.8:compile
+[INFO] |  |  |  +- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  |  |  |  \- (commons-logging:commons-logging:jar:1.0.3:compile - omitted for conflict with 1.1.3)
+[INFO] |  |  |  \- (commons-logging:commons-logging:jar:1.1:compile - omitted for conflict with 1.1.3)
+[INFO] |  |  \- commons-beanutils:commons-beanutils-core:jar:1.8.0:compile
+[INFO] |  |     \- (commons-logging:commons-logging:jar:1.1.1:compile - omitted for conflict with 1.1.3)
+[INFO] |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  +- (org.slf4j:slf4j-log4j12:jar:1.7.10:compile - scope updated from runtime; omitted for duplicate)
+[INFO] |  +- (org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile - omitted for duplicate)
+[INFO] |  +- (org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:compile - omitted for duplicate)
+[INFO] |  +- org.apache.avro:avro:jar:1.7.4:compile
+[INFO] |  |  +- (org.codehaus.jackson:jackson-core-asl:jar:1.8.8:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  +- (org.codehaus.jackson:jackson-mapper-asl:jar:1.8.8:compile - omitted for conflict with 1.9.13)
+[INFO] |  |  +- com.thoughtworks.paranamer:paranamer:jar:2.3:compile
+[INFO] |  |  +- (org.xerial.snappy:snappy-java:jar:1.0.4.1:compile - omitted for conflict with 1.1.4)
+[INFO] |  |  +- (org.apache.commons:commons-compress:jar:1.4.1:compile - omitted for conflict with 1.20)
+[INFO] |  |  \- (org.slf4j:slf4j-api:jar:1.6.4:compile - omitted for conflict with 1.7.15)
+[INFO] |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  +- com.google.code.gson:gson:jar:2.2.4:compile
+[INFO] |  +- org.apache.hadoop:hadoop-auth:jar:2.7.2:compile
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  +- (commons-codec:commons-codec:jar:1.4:compile - omitted for duplicate)
+[INFO] |  |  +- (log4j:log4j:jar:1.2.17:runtime - omitted for duplicate)
+[INFO] |  |  +- (org.slf4j:slf4j-log4j12:jar:1.7.10:runtime - omitted for duplicate)
+[INFO] |  |  +- (org.apache.httpcomponents:httpclient:jar:4.2.5:compile - omitted for conflict with 4.1.2)
+[INFO] |  |  +- org.apache.directory.server:apacheds-kerberos-codec:jar:2.0.0-M15:compile
+[INFO] |  |  |  +- org.apache.directory.server:apacheds-i18n:jar:2.0.0-M15:compile
+[INFO] |  |  |  |  \- (org.slf4j:slf4j-api:jar:1.7.5:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  |  +- org.apache.directory.api:api-asn1-api:jar:1.0.0-M20:compile
+[INFO] |  |  |  |  \- (org.slf4j:slf4j-api:jar:1.7.5:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  |  +- org.apache.directory.api:api-util:jar:1.0.0-M20:compile
+[INFO] |  |  |  |  \- (org.slf4j:slf4j-api:jar:1.7.5:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  |  \- (org.slf4j:slf4j-api:jar:1.7.5:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  +- (org.apache.zookeeper:zookeeper:jar:3.4.6:compile - omitted for duplicate)
+[INFO] |  |  \- org.apache.curator:curator-framework:jar:2.7.1:compile
+[INFO] |  |     +- (org.apache.curator:curator-client:jar:2.7.1:compile - omitted for duplicate)
+[INFO] |  |     +- (org.apache.zookeeper:zookeeper:jar:3.4.6:compile - omitted for duplicate)
+[INFO] |  |     \- (com.google.guava:guava:jar:16.0.1:compile - omitted for conflict with 11.0.2)
+[INFO] |  +- com.jcraft:jsch:jar:0.1.42:compile
+[INFO] |  +- org.apache.curator:curator-client:jar:2.7.1:compile
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.6:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  +- (org.apache.zookeeper:zookeeper:jar:3.4.6:compile - omitted for duplicate)
+[INFO] |  |  \- (com.google.guava:guava:jar:16.0.1:compile - omitted for conflict with 11.0.2)
+[INFO] |  +- org.apache.curator:curator-recipes:jar:2.7.1:compile
+[INFO] |  |  +- (org.apache.curator:curator-framework:jar:2.7.1:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.zookeeper:zookeeper:jar:3.4.6:compile - omitted for duplicate)
+[INFO] |  |  \- (com.google.guava:guava:jar:16.0.1:compile - omitted for conflict with 11.0.2)
+[INFO] |  +- (com.google.code.findbugs:jsr305:jar:3.0.0:compile - omitted for conflict with 1.3.9)
+[INFO] |  +- (org.apache.htrace:htrace-core:jar:3.1.0-incubating:compile - omitted for duplicate)
+[INFO] |  +- org.apache.zookeeper:zookeeper:jar:3.4.6:compile
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.6.1:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  +- org.slf4j:slf4j-log4j12:jar:1.6.1:compile
+[INFO] |  |  |  +- (org.slf4j:slf4j-api:jar:1.6.1:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  |  \- (log4j:log4j:jar:1.2.16:compile - omitted for conflict with 1.2.17)
+[INFO] |  |  +- (log4j:log4j:jar:1.2.16:compile - omitted for conflict with 1.2.17)
+[INFO] |  |  \- (io.netty:netty:jar:3.7.0.Final:compile - omitted for conflict with 3.6.2.Final)
+[INFO] |  \- org.apache.commons:commons-compress:jar:1.4.1:compile
+[INFO] |     \- org.tukaani:xz:jar:1.0:compile
+[INFO] +- org.apache.hadoop:hadoop-client:jar:2.7.2:compile
+[INFO] |  +- (org.apache.hadoop:hadoop-common:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  +- (org.apache.hadoop:hadoop-hdfs:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  +- org.apache.hadoop:hadoop-mapreduce-client-app:jar:2.7.2:compile
+[INFO] |  |  +- org.apache.hadoop:hadoop-mapreduce-client-common:jar:2.7.2:compile
+[INFO] |  |  |  +- (org.apache.hadoop:hadoop-yarn-common:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- org.apache.hadoop:hadoop-yarn-client:jar:2.7.2:compile
+[INFO] |  |  |  |  +- (com.google.guava:guava:jar:11.0.2:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (commons-logging:commons-logging:jar:1.1.3:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (commons-lang:commons-lang:jar:2.6:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (commons-cli:commons-cli:jar:1.2:compile - omitted for conflict with 1.3.1)
+[INFO] |  |  |  |  +- (log4j:log4j:jar:1.2.17:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (org.apache.hadoop:hadoop-yarn-api:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  |  \- (org.apache.hadoop:hadoop-yarn-common:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.apache.hadoop:hadoop-mapreduce-client-core:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- org.apache.hadoop:hadoop-yarn-server-common:jar:2.7.2:compile
+[INFO] |  |  |  |  +- (org.apache.hadoop:hadoop-yarn-api:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (org.apache.hadoop:hadoop-yarn-common:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (com.google.guava:guava:jar:11.0.2:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (commons-logging:commons-logging:jar:1.1.3:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  |  |  |  +- (org.apache.zookeeper:zookeeper:jar:3.4.6:compile - omitted for duplicate)
+[INFO] |  |  |  |  \- (org.fusesource.leveldbjni:leveldbjni-all:jar:1.8:compile - omitted for duplicate)
+[INFO] |  |  |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  |  \- (org.slf4j:slf4j-log4j12:jar:1.7.10:compile - omitted for conflict with 1.6.1)
+[INFO] |  |  +- org.apache.hadoop:hadoop-mapreduce-client-shuffle:jar:2.7.2:compile
+[INFO] |  |  |  +- (org.apache.hadoop:hadoop-yarn-server-common:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.apache.hadoop:hadoop-mapreduce-client-common:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.fusesource.leveldbjni:leveldbjni-all:jar:1.8:compile - omitted for duplicate)
+[INFO] |  |  |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  |  \- (org.slf4j:slf4j-log4j12:jar:1.7.10:compile - omitted for conflict with 1.6.1)
+[INFO] |  |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  \- (org.slf4j:slf4j-log4j12:jar:1.7.10:compile - omitted for conflict with 1.6.1)
+[INFO] |  +- org.apache.hadoop:hadoop-yarn-api:jar:2.7.2:compile
+[INFO] |  |  +- (commons-lang:commons-lang:jar:2.6:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.guava:guava:jar:11.0.2:compile - omitted for duplicate)
+[INFO] |  |  +- (commons-logging:commons-logging:jar:1.1.3:compile - omitted for duplicate)
+[INFO] |  |  \- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  +- org.apache.hadoop:hadoop-mapreduce-client-core:jar:2.7.2:compile
+[INFO] |  |  +- org.apache.hadoop:hadoop-yarn-common:jar:2.7.2:compile
+[INFO] |  |  |  +- (org.apache.hadoop:hadoop-yarn-api:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- (javax.xml.bind:jaxb-api:jar:2.2.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.apache.commons:commons-compress:jar:1.4.1:compile - omitted for duplicate)
+[INFO] |  |  |  +- (commons-lang:commons-lang:jar:2.6:compile - omitted for duplicate)
+[INFO] |  |  |  +- (javax.servlet:servlet-api:jar:2.5:compile - omitted for duplicate)
+[INFO] |  |  |  +- (commons-codec:commons-codec:jar:1.4:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.mortbay.jetty:jetty-util:jar:6.1.26:compile - omitted for duplicate)
+[INFO] |  |  |  +- (com.sun.jersey:jersey-core:jar:1.9:compile - omitted for duplicate)
+[INFO] |  |  |  +- com.sun.jersey:jersey-client:jar:1.9:compile
+[INFO] |  |  |  |  \- (com.sun.jersey:jersey-core:jar:1.9:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.codehaus.jackson:jackson-core-asl:jar:1.9.13:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.codehaus.jackson:jackson-mapper-asl:jar:1.9.13:compile - omitted for duplicate)
+[INFO] |  |  |  +- (org.codehaus.jackson:jackson-jaxrs:jar:1.9.13:compile - omitted for conflict with 1.8.3)
+[INFO] |  |  |  +- (org.codehaus.jackson:jackson-xc:jar:1.9.13:compile - omitted for conflict with 1.8.3)
+[INFO] |  |  |  +- (com.google.guava:guava:jar:11.0.2:compile - omitted for duplicate)
+[INFO] |  |  |  +- (commons-logging:commons-logging:jar:1.1.3:compile - omitted for duplicate)
+[INFO] |  |  |  +- (commons-cli:commons-cli:jar:1.2:compile - omitted for conflict with 1.3.1)
+[INFO] |  |  |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  |  |  +- (commons-io:commons-io:jar:2.4:compile - omitted for duplicate)
+[INFO] |  |  |  \- (log4j:log4j:jar:1.2.17:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  \- (org.slf4j:slf4j-log4j12:jar:1.7.10:compile - omitted for conflict with 1.6.1)
+[INFO] |  +- org.apache.hadoop:hadoop-mapreduce-client-jobclient:jar:2.7.2:compile
+[INFO] |  |  +- (org.apache.hadoop:hadoop-mapreduce-client-common:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  +- (org.apache.hadoop:hadoop-mapreduce-client-shuffle:jar:2.7.2:compile - omitted for duplicate)
+[INFO] |  |  +- (com.google.protobuf:protobuf-java:jar:2.5.0:compile - omitted for duplicate)
+[INFO] |  |  +- (org.slf4j:slf4j-api:jar:1.7.10:compile - omitted for conflict with 1.7.15)
+[INFO] |  |  \- (org.slf4j:slf4j-log4j12:jar:1.7.10:compile - omitted for conflict with 1.6.1)
+[INFO] |  \- (org.apache.hadoop:hadoop-annotations:jar:2.7.2:compile - omitted for duplicate)
+[INFO] +- junit:junit:jar:4.12:test
+[INFO] |  \- org.hamcrest:hamcrest-core:jar:1.3:test
+[INFO] +- org.apache.httpcomponents:httpclient:jar:4.5.3:compile
+[INFO] |  +- (org.apache.httpcomponents:httpcore:jar:4.4.6:compile - omitted for conflict with 4.4.5)
+[INFO] |  +- (commons-logging:commons-logging:jar:1.2:compile - omitted for conflict with 1.1.3)
+[INFO] |  \- (commons-codec:commons-codec:jar:1.9:compile - omitted for conflict with 1.4)
+[INFO] +- org.apache.httpcomponents:httpcore:jar:4.4.5:compile
+[INFO] +- com.google.guava:guava:jar:21.0:compile
+[INFO] +- ru.yandex.clickhouse:clickhouse-jdbc:jar:0.1.40:compile
+[INFO] |  +- (org.apache.httpcomponents:httpclient:jar:4.5.2:compile - omitted for conflict with 4.5.3)
+[INFO] |  +- org.apache.httpcomponents:httpmime:jar:4.5.2:compile
+[INFO] |  |  \- (org.apache.httpcomponents:httpclient:jar:4.5.2:compile - omitted for conflict with 4.5.3)
+[INFO] |  +- net.jpountz.lz4:lz4:jar:1.3.0:compile
+[INFO] |  +- com.fasterxml.jackson.core:jackson-databind:jar:2.7.3:compile
+[INFO] |  |  +- com.fasterxml.jackson.core:jackson-annotations:jar:2.7.0:compile
+[INFO] |  |  \- (com.fasterxml.jackson.core:jackson-core:jar:2.7.3:compile - omitted for duplicate)
+[INFO] |  +- com.fasterxml.jackson.core:jackson-core:jar:2.7.3:compile
+[INFO] |  +- (com.google.guava:guava:jar:19.0:compile - omitted for conflict with 21.0)
+[INFO] |  +- (org.slf4j:slf4j-api:jar:1.7.21:compile - omitted for conflict with 1.7.15)
+[INFO] |  \- joda-time:joda-time:jar:2.9.9:compile
+[INFO] +- org.apache.flink:flink-connector-jdbc_2.11:jar:1.12.0:compile
+[INFO] |  \- (org.apache.flink:force-shading:jar:1.12.0:compile - omitted for duplicate)
+[INFO] +- javax.mail:mail:jar:1.4.7:compile
+[INFO] |  \- javax.activation:activation:jar:1.1:compile
+[INFO] \- com.alibaba:druid:jar:1.1.16:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 23.194 s
+[INFO] Finished at: 2020-12-29T17:31:20+08:00
+[INFO] ------------------------------------------------------------------------

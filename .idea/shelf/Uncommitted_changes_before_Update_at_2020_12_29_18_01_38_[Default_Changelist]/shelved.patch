@@ -1,0 +1,739 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\r\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\r\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\r\n    <modelVersion>4.0.0</modelVersion>\r\n\r\n    <groupId>org.example</groupId>\r\n    <artifactId>realtimecollectortion</artifactId>\r\n    <version>1.0-SNAPSHOT</version>\r\n\r\n    <dependencies>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-clients_2.11</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n\r\n        <!--flink和kafka连接的依赖，因为flink要去连接kafka-->\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-connector-kafka-0.11_2.11</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>mysql</groupId>\r\n            <artifactId>mysql-connector-java</artifactId>\r\n            <version>5.1.44</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-runtime-web_2.11</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-table-planner_2.11</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-table-planner-blink_2.11</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-table-common</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>de.unkrig.jdisasm</groupId>\r\n            <artifactId>jdisasm</artifactId>\r\n            <version>1.0.5</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>com.alibaba</groupId>\r\n            <artifactId>fastjson</artifactId>\r\n            <version>1.2.68</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-statebackend-rocksdb_2.11</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-connector-filesystem_2.11</artifactId>\r\n            <version>1.10.0</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.hadoop</groupId>\r\n            <artifactId>hadoop-hdfs</artifactId>\r\n            <version>2.7.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.hadoop</groupId>\r\n            <artifactId>hadoop-common</artifactId>\r\n            <version>2.7.2</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.hadoop</groupId>\r\n            <artifactId>hadoop-client</artifactId>\r\n            <version>2.7.2</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>junit</groupId>\r\n            <artifactId>junit</artifactId>\r\n            <version>4.12</version>\r\n            <scope>test</scope>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.httpcomponents</groupId>\r\n            <artifactId>httpclient</artifactId>\r\n            <version>4.5.3</version>\r\n        </dependency>\r\n        <dependency>\r\n            <groupId>org.apache.httpcomponents</groupId>\r\n            <artifactId>httpcore</artifactId>\r\n            <version>4.4.5</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>com.google.guava</groupId>\r\n            <artifactId>guava</artifactId>\r\n            <version>21.0</version>\r\n<!--            <type>bundle</type>-->\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>ru.yandex.clickhouse</groupId>\r\n            <artifactId>clickhouse-jdbc</artifactId>\r\n            <version>0.1.40</version>\r\n        </dependency>\r\n\r\n        <dependency>\r\n            <groupId>org.apache.flink</groupId>\r\n            <artifactId>flink-connector-jdbc_2.11</artifactId>\r\n            <version>1.12.0</version>\r\n        </dependency>\r\n\r\n\r\n        <dependency>\r\n            <groupId>com.alibaba</groupId>\r\n            <artifactId>druid</artifactId>\r\n            <version>1.1.16</version>\r\n        </dependency>\r\n        <!--hadoop-client  3.1.3-->\r\n        <!--https://mvnrepository.com/artifact/org.apache.hadoop/hadoop-client/3.1.3-->\r\n    </dependencies>\r\n\r\n    <!--<build>-->\r\n        <!--<plugins>-->\r\n            <!--&lt;!&ndash; 该插件用于将Scala代码编译成class文件 &ndash;&gt;-->\r\n            <!--<plugin>-->\r\n                <!--<groupId>org.apache.maven.plugins</groupId>-->\r\n                <!--<artifactId>maven-compiler-plugin</artifactId>-->\r\n                <!--<configuration>-->\r\n                    <!--<source>1.8</source>-->\r\n                    <!--<target>1.8</target>-->\r\n                <!--</configuration>-->\r\n            <!--</plugin>-->\r\n            <!--<plugin>-->\r\n                <!--<groupId>net.alchim31.maven</groupId>-->\r\n                <!--<artifactId>scala-maven-plugin</artifactId>-->\r\n                <!--<version>3.2.2</version>-->\r\n                <!--<executions>-->\r\n                    <!--<execution>-->\r\n                        <!--&lt;!&ndash; 声明绑定到maven的compile阶段 &ndash;&gt;-->\r\n                        <!--<goals>-->\r\n                            <!--<goal>compile</goal>-->\r\n                            <!--<goal>testCompile</goal>-->\r\n                        <!--</goals>-->\r\n                    <!--</execution>-->\r\n                <!--</executions>-->\r\n            <!--</plugin>-->\r\n            <!--<plugin>-->\r\n                <!--<groupId>org.apache.maven.plugins</groupId>-->\r\n                <!--<artifactId>maven-assembly-plugin</artifactId>-->\r\n                <!--<version>3.0.0</version>-->\r\n                <!--<configuration>-->\r\n                    <!--<descriptorRefs>-->\r\n                        <!--<descriptorRef>jar-with-dependencies</descriptorRef>-->\r\n                    <!--</descriptorRefs>-->\r\n                <!--</configuration>-->\r\n                <!--<executions>-->\r\n                    <!--<execution>-->\r\n                        <!--<id>make-assembly</id>-->\r\n                        <!--<phase>package</phase>-->\r\n                        <!--<goals>-->\r\n                            <!--<goal>single</goal>-->\r\n                        <!--</goals>-->\r\n                    <!--</execution>-->\r\n                <!--</executions>-->\r\n            <!--</plugin>-->\r\n        <!--</plugins>-->\r\n    <!--</build>-->\r\n\r\n    <build>\r\n        <plugins>\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-compiler-plugin</artifactId>\r\n                <version>3.3</version>\r\n                <configuration>\r\n                    <source>1.8</source>\r\n                    <target>1.8</target>\r\n                </configuration>\r\n            </plugin>\r\n            <!--打jar包-->\r\n            <plugin>\r\n                <artifactId>maven-assembly-plugin</artifactId>\r\n                <configuration>\r\n                    <archive>\r\n                        <manifest>\r\n                            <mainClass>realtime.To_CK</mainClass>\r\n                        </manifest>\r\n                    </archive>\r\n                    <descriptorRefs>\r\n                        <descriptorRef>jar-with-dependencies</descriptorRef>\r\n                    </descriptorRefs>\r\n                </configuration>\r\n            </plugin>\r\n\r\n            <plugin>\r\n                <groupId>org.apache.maven.plugins</groupId>\r\n                <artifactId>maven-shade-plugin</artifactId>\r\n                <version>2.3</version>\r\n                <executions>\r\n                    <execution>\r\n                        <phase>package</phase>\r\n                        <goals>\r\n                            <goal>shade</goal>\r\n                        </goals>\r\n                        <configuration>\r\n                            <transformers>\r\n                                <!--<transformer implementation=\"org.apache.maven.plugins.shade.resource.ManifestResourceTransformer\">\r\n                                    <mainClass>flink.KafkaDemo1</mainClass>\r\n                                </transformer>-->\r\n                                <transformer implementation=\"org.apache.maven.plugins.shade.resource.AppendingTransformer\">\r\n                                    <resource>reference.conf</resource>\r\n                                </transformer>\r\n                            </transformers>\r\n                        </configuration>\r\n                    </execution>\r\n                </executions>\r\n            </plugin>\r\n        </plugins>\r\n    </build>\r\n\r\n\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
++++ pom.xml	(date 1609234918778)
+@@ -29,22 +29,18 @@
+             <version>5.1.44</version>
+         </dependency>
+ 
+-        <dependency>
+-            <groupId>org.apache.flink</groupId>
+-            <artifactId>flink-runtime-web_2.11</artifactId>
+-            <version>1.10.0</version>
+-        </dependency>
+-
+         <dependency>
+             <groupId>org.apache.flink</groupId>
+             <artifactId>flink-table-planner_2.11</artifactId>
+             <version>1.10.0</version>
++<!--            <scope>provided</scope>-->
+         </dependency>
+ 
+         <dependency>
+             <groupId>org.apache.flink</groupId>
+             <artifactId>flink-table-planner-blink_2.11</artifactId>
+             <version>1.10.0</version>
++<!--            <scope>provided</scope>-->
+         </dependency>
+ 
+         <dependency>
+@@ -127,6 +123,13 @@
+             <artifactId>flink-connector-jdbc_2.11</artifactId>
+             <version>1.12.0</version>
+         </dependency>
++
++        <dependency>
++            <groupId>javax.mail</groupId>
++            <artifactId>mail</artifactId>
++            <version>1.4.7</version>
++        </dependency>
++
+ 
+ 
+         <dependency>
+Index: src/main/java/realtime/ClickhouseSink.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package realtime;\r\n\r\n/**\r\n * @author xuweiwei\r\n * @version 1.0\r\n * @todo 2020/12/23 17:44:47\r\n */\r\nimport bean.PayMoney;\r\nimport org.apache.commons.lang.StringUtils;\r\nimport org.apache.flink.configuration.Configuration;\r\nimport org.apache.flink.streaming.api.functions.sink.RichSinkFunction;\r\nimport org.apache.flink.types.Row;\r\nimport util.DataSourceUtil;\r\nimport util.StrUtils;\r\nimport java.sql.*;\r\nimport java.io.Serializable;\r\nimport java.lang.reflect.Field;\r\nimport java.util.*;\r\n\r\npublic class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serializable {\r\n    private String tablename;\r\n    private String[] tableColums;\r\n    private List<String> types;\r\n    private String[] columns;\r\n    private String username;\r\n    private String password;\r\n    private String[] ips;\r\n//    private String drivername = \"ru.yandex.clickhouse.ClickHouseDriver\";\r\n    private String drivername = \"com.mysql.jdbc.Driver\";\r\n    private List<PayMoney> list = new ArrayList<>();\r\n    private List<PreparedStatement> preparedStatementList = new ArrayList<>();\r\n    private List<Connection> connectionList = new ArrayList<>();\r\n    private List<Statement> statementList = new ArrayList<>();\r\n\r\n    private long lastInsertTime = 0L;\r\n    private long insertCkTimenterval = 10000L; //建议4000L\r\n    // 插入的批次\r\n    private int insertCkBatchSize = 100;    //建议10000\r\n\r\n    public ClickhouseSink(String tablename, String username, String password,\r\n                          String[] ips, String[] tableColums, List<String> types, String[] columns) {\r\n        this.tablename = tablename;\r\n        this.username = username;\r\n        this.password = password;\r\n        this.ips = ips;\r\n        this.tableColums = tableColums;\r\n        this.types = types;\r\n        this.columns = columns;  // 新增字段\r\n    }\r\n\r\n    // 插入数据\r\n    public void insertData(List<PayMoney> payMoneys, PreparedStatement preparedStatement,\r\n                           Connection connection) throws SQLException {\r\n\r\n        for (int i = 0; i < payMoneys.size(); ++i) {\r\n            PayMoney payMoney = payMoneys.get(i);\r\n//            System.out.println(payMoney.toString());\r\n            preparedStatement.setString(1,payMoney.getUid());\r\n            preparedStatement.setString(2,payMoney.getPaymoney());\r\n            preparedStatement.setString(3,payMoney.getVip_id());\r\n            preparedStatement.setString(4,payMoney.getUpdatetime());\r\n            preparedStatement.setString(5,payMoney.getSiteid());\r\n            preparedStatement.setString(6,payMoney.getDt());\r\n            preparedStatement.setString(7,payMoney.getDn());\r\n            preparedStatement.setString(8,payMoney.getCreatetime());\r\n            preparedStatement.addBatch();\r\n        }\r\n\r\n        preparedStatement.executeBatch();\r\n        connection.commit();\r\n        preparedStatement.clearBatch();\r\n    }\r\n\r\n\r\n    /**\r\n     * 新增字段修改表添加列\r\n     *\r\n     * @param statement\r\n     * @throws Exception\r\n     */\r\n    public void tableAddColumn(Statement statement) {\r\n        try {\r\n            if (null != this.columns && this.columns.length > 0) {\r\n\r\n                /**\r\n                 * table 增加字段\r\n                 */\r\n                // 获取原表字段名\r\n                String querySql = \"select * from \" + this.tablename + \" limit 1\";\r\n\r\n                ResultSet rs = statement.executeQuery(querySql);\r\n                ResultSetMetaData rss = rs.getMetaData();\r\n                int columnCount = rss.getColumnCount();\r\n\r\n                List<String> orgTabCols = new ArrayList<>();\r\n                for (int i = 1; i <= columnCount; ++i) {\r\n                    orgTabCols.add(rss.getColumnName(i));\r\n                }\r\n\r\n                // 对比两个数组,判断新增字段是否在原来的表中\r\n                Collection collection = new ArrayList<String>(orgTabCols);\r\n                boolean exists = collection.removeAll(Arrays.asList(this.columns));\r\n\r\n                // 新增字段不在原来的表中，执行添加列操作\r\n                if (!exists) {\r\n\r\n                    for (int i = 0; i < this.columns.length; ++i) {\r\n                        String str = \"\";\r\n                        String str_all = \"\";\r\n\r\n                        StringBuilder sb = null;\r\n                        StringBuilder sb_all = null;\r\n                        if (i == 0) {\r\n                            sb.append(\"alter table \" )\r\n                                    .append(this.tablename)\r\n                                    .append(\" add column \")\r\n                                    .append(this.columns[i])\r\n                                    .append(\" String\")\r\n                                    .append(\" after \")\r\n                                    .append(orgTabCols.get(orgTabCols.size() - 1));\r\n                            sb_all.append(\"alter table \" )\r\n                                    .append(\"_all\")\r\n                                    .append(this.tablename)\r\n                                    .append(\" add column \")\r\n                                    .append(this.columns[i])\r\n                                    .append(\" String\")\r\n                                    .append(\" after \")\r\n                                    .append(orgTabCols.get(orgTabCols.size() - 1));\r\n                        } else {\r\n                            sb.append(\"alter table \" )\r\n                                    .append(this.tablename)\r\n                                    .append(\" add column \")\r\n                                    .append(this.columns[i])\r\n                                    .append(\" String\")\r\n                                    .append(\" after \")\r\n                                    .append(this.columns[i - 1]);\r\n\r\n                            sb_all.append(\"alter table \" )\r\n                                    .append(\"_all\")\r\n                                    .append(this.tablename)\r\n                                    .append(\" add column \")\r\n                                    .append(this.columns[i])\r\n                                    .append(\" String\")\r\n                                    .append(\" after \")\r\n                                    .append(this.columns[i - 1]);\r\n                        }\r\n\r\n                        if (StringUtils.isNotEmpty(sb.toString())) {\r\n                            statement.executeUpdate(sb.toString());\r\n                        }\r\n\r\n                        if (StringUtils.isNotEmpty(sb_all.toString())) {\r\n                            statement.executeUpdate(sb_all.toString());\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n\r\n    // 根据IP创建连接\r\n    public void createConnection() throws Exception {\r\n\r\n        // 插入语句\r\n        String insertStr = StrUtils.clickhouseInsertValue(this.tableColums, this.tablename);\r\n        // 创建表\r\n//        List<String> createtableStrList = StrUtils.clickhouseCreatTable(this.tableColums, this.tablename,\r\n//                Constant.CKCLUSTERNAME, this.tableColums[3], this.types);\r\n        // 创建数据库\r\n//        String create_database_str = \"create database if not exists \" + this.tablename.split(\"\\\\.\")[0];\r\n\r\n        for (String ip : this.ips) {\r\n//            String url = \"jdbc:clickhouse://\" + ip + \":8123\";\r\n            Connection connection = DataSourceUtil.getConnection();\r\n            Statement statement = connection.createStatement();\r\n\r\n            // 执行创建数据库\r\n//            statement.executeUpdate(create_database_str);\r\n\r\n            // 执行创建表\r\n//            statement.executeUpdate(createtableStrList.get(0));\r\n//            statement.executeUpdate(createtableStrList.get(1));\r\n\r\n            // 增加表字段\r\n            tableAddColumn(statement);\r\n\r\n            this.statementList.add(statement);\r\n            PreparedStatement preparedStatement = connection.prepareStatement(\"INSERT INTO  dataCollectionTest VALUES(?,?,?,?,?,?,?,?)\");\r\n            connection.setAutoCommit(false);\r\n            this.preparedStatementList.add(preparedStatement);\r\n            this.connectionList.add(connection);\r\n        }\r\n\r\n    }\r\n\r\n\r\n    @Override\r\n    public void open(Configuration parameters) throws Exception {\r\n\r\n        Class.forName(this.drivername);\r\n\r\n        // 创建连接\r\n        createConnection();\r\n    }\r\n\r\n    @Override\r\n    public void invoke(PayMoney payMoney, Context context) throws Exception {\r\n\r\n        // 轮询写入各个local表，避免单节点数据过多\r\n        if (null != payMoney) {\r\n            Random random = new Random();\r\n            int index = random.nextInt(this.ips.length);\r\n            switch (index) {\r\n\r\n                case 0:\r\n                    if(list.size() >= this.insertCkBatchSize || isTimeToDoInsert()) {\r\n                        insertData(list,preparedStatementList.get(0),connectionList.get(0));\r\n                        list.clear();\r\n                        this.lastInsertTime = System.currentTimeMillis();\r\n                    } else {\r\n                        list.add(payMoney);\r\n                    }\r\n\r\n                    break;\r\n                case 1:\r\n                    if(list.size() >= this.insertCkBatchSize || this.isTimeToDoInsert()) {\r\n                        insertData(list,preparedStatementList.get(1),connectionList.get(1));\r\n                        list.clear();\r\n                        this.lastInsertTime = System.currentTimeMillis();\r\n                    } else {\r\n                        list.add(payMoney);\r\n                    }\r\n                    break;\r\n            }\r\n        }\r\n    }\r\n\r\n    @Override\r\n    public void close() throws Exception {\r\n\r\n        for (Statement statement : this.statementList) {\r\n            if (null != statement) {\r\n                statement.close();\r\n            }\r\n        }\r\n\r\n        for (PreparedStatement preparedStatement : this.preparedStatementList) {\r\n            if (null != preparedStatement) {\r\n                preparedStatement.close();\r\n            }\r\n        }\r\n\r\n        for (Connection connection : this.connectionList) {\r\n            if (null != connection) {\r\n                connection.close();\r\n            }\r\n        }\r\n    }\r\n\r\n    /**\r\n     * 根据时间判断是否插入数据\r\n     *\r\n     * @return\r\n     */\r\n    private boolean isTimeToDoInsert() {\r\n        long currTime = System.currentTimeMillis();\r\n        return currTime - this.lastInsertTime >= this.insertCkTimenterval;\r\n//        return true;\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/realtime/ClickhouseSink.java	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
++++ src/main/java/realtime/ClickhouseSink.java	(date 1609208703133)
+@@ -164,7 +164,7 @@
+     public void createConnection() throws Exception {
+ 
+         // 插入语句
+-        String insertStr = StrUtils.clickhouseInsertValue(this.tableColums, this.tablename);
++//        String insertStr = StrUtils.clickhouseInsertValue(this.tableColums, this.tablename);
+         // 创建表
+ //        List<String> createtableStrList = StrUtils.clickhouseCreatTable(this.tableColums, this.tablename,
+ //                Constant.CKCLUSTERNAME, this.tableColums[3], this.types);
+Index: src/main/java/realtime/To_CK.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package realtime;\r\n\r\nimport bean.PayMoney;\r\nimport com.alibaba.fastjson.JSONArray;\r\nimport com.alibaba.fastjson.JSONObject;\r\nimport org.apache.flink.api.common.functions.FlatMapFunction;\r\nimport org.apache.flink.api.common.functions.MapFunction;\r\nimport org.apache.flink.api.common.serialization.SimpleStringSchema;\r\nimport org.apache.flink.api.java.utils.ParameterTool;\r\nimport org.apache.flink.connector.jdbc.JdbcConnectionOptions;\r\nimport org.apache.flink.connector.jdbc.JdbcExecutionOptions;\r\nimport org.apache.flink.connector.jdbc.JdbcSink;\r\nimport org.apache.flink.connector.jdbc.JdbcStatementBuilder;\r\nimport org.apache.flink.streaming.api.datastream.DataStreamSource;\r\nimport org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;\r\nimport org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;\r\nimport org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer010;\r\nimport org.apache.flink.util.Collector;\r\nimport util.ParseJsonData;\r\nimport org.slf4j.Logger;\r\nimport org.slf4j.LoggerFactory;\r\n\r\nimport java.sql.PreparedStatement;\r\nimport java.sql.SQLException;\r\nimport java.util.Properties;\r\n\r\nclass CkSinkBuilder implements JdbcStatementBuilder<PayMoney> {\r\n\r\n    @Override\r\n    public void accept(PreparedStatement ps, PayMoney payMoney) throws SQLException {\r\n\r\n        if (null != payMoney.getUid()) {\r\n            ps.setString(1, payMoney.getUid());\r\n        }else {\r\n            ps.setString(1, \"\");\r\n        }\r\n\r\n        if (null != payMoney.getPaymoney()) {\r\n            ps.setString(2, payMoney.getPaymoney());\r\n        }else {\r\n            ps.setString(2, \"\");\r\n        }\r\n\r\n            ps.setString(3, payMoney.getVip_id());\r\n\r\n            if (null != payMoney.getUpdatetime()) {\r\n                ps.setString(4, payMoney.getUpdatetime());\r\n            }else {\r\n            ps.setString(4, \"\");\r\n        }\r\n\r\n        ps.setString(5, payMoney.getSiteid());\r\n        ps.setString(6, payMoney.getDt());\r\n        ps.setString(7, payMoney.getDn());\r\n        ps.setString(8, payMoney.getCreatetime());\r\n    }\r\n}\r\n\r\npublic class To_CK {\r\n    private static String BOOTSTRAP_SERVERS = \"bootstrap.servers\";\r\n    private static String GROUP_ID = \"group.id\";\r\n    private static String TOPIC = \"topic\";\r\n    private static String SQL=\"sql\";\r\n    private static String DATABASE= \"database\";\r\n    private static String START_FROMTIMESTAMP=\"start_fromtimestamp\";\r\n    private static final Logger log = LoggerFactory.getLogger(To_CK.class);\r\n\r\n    public static void main(String[] args)  {\r\n        //从命令行获取参数\r\n        ParameterTool params = ParameterTool.fromArgs(args);\r\n        //获得环境\r\n        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();\r\n        env.getConfig().setGlobalJobParameters(params);\r\n        env.setParallelism(1); //设置并发为1，防止打印控制台乱序\r\n//        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime); //Flink 默认使用 ProcessingTime 处理,设置成event time\r\n//        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);//Table Env 环境\r\n        //从Kafka读取数据\r\n        Properties pros = new Properties();\r\n//        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));\r\n//        pros.setProperty(GROUP_ID, params.get(GROUP_ID));\r\n        pros.setProperty(\"bootstrap.servers\",\"192.168.20.27:9092\");\r\n        pros.setProperty(\"group.id\",\"test\");\r\n        pros.setProperty(\"key.deserializer\", \"org.apache.kafka.common.serialization.StringDeserializer\");\r\n        pros.setProperty(\"value.deserializer\", \"org.apache.kafka.common.serialization.StringDeserializer\");\r\n        pros.setProperty(\"auto.offset.reset\", \"latest\");\r\n        FlinkKafkaConsumer010<String> consumer = new FlinkKafkaConsumer010<>\r\n                (\r\n                        \"memberpaymoney\",\r\n//                        params.get(TOPIC),\r\n                        new SimpleStringSchema(),\r\n                        pros);\r\n\r\n//        consumer.setStartFromTimestamp(Long.parseLong(Long.valueOf(START_FROMTIMESTAMP)+\"L\"));   //从kafka的何时时间点进行消费\r\n\r\n        DataStreamSource<String> sourceDs = env.addSource(consumer);\r\n        String sql = \"insert into dataCollectionTest values(?,?,?,?,?,?,?,?)\";\r\n\r\n//        SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.flatMap(\r\n//                new FlatMapFunction<String, PayMoney>() {\r\n//                    @Override\r\n//                    public void flatMap(String payMoneyArray, Collector<PayMoney> out) throws Exception {\r\n//                        try {\r\n//                            JSONArray payMoneyJsonArray = JSONArray.parseArray(payMoneyArray);\r\n//                            for (int i = 0; i < payMoneyJsonArray.size(); i++) {\r\n//                                JSONObject payMoneyJson = payMoneyJsonArray.getJSONObject(i);\r\n//                                PayMoney payMoney = payMoneyJson.toJavaObject(PayMoney.class);\r\n//                                out.collect(payMoney);\r\n//                            }\r\n//                        } catch (Exception e) {\r\n//                            log.error(\"源头kafka数据异常,请检查数据格式！！  \" + \"数据为: \" + payMoneyArray);\r\n//                        }\r\n//                    }\r\n//                }\r\n//        ).name(\"FlatMapFunction\");\r\n\r\n\r\n        SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.map(\r\n                    new MapFunction<String, PayMoney>() {\r\n                        @Override\r\n                        public PayMoney map(String value) throws Exception {\r\n                            JSONObject payMoneyJson = ParseJsonData.getJsonData(value);\r\n//                            PayMoney payMoney = new PayMoney();\r\n//                            try {\r\n//                                payMoney.setUid(payMoneyJson.getString(\"uid\"));\r\n//                                payMoney.setPaymoney(payMoneyJson.getString(\"paymoney\"));\r\n//                                payMoney.setVip_id(payMoneyJson.getString(\"vip_id\"));\r\n//                                payMoney.setUpdatetime(payMoneyJson.getString(\"updatetime\"));\r\n//                                payMoney.setSiteid(payMoneyJson.getString(\"siteid\"));\r\n//                                payMoney.setDt(payMoneyJson.getString(\"dt\"));\r\n//                                payMoney.setDn(payMoneyJson.getString(\"dn\"));\r\n//                                payMoney.setCreatetime(payMoneyJson.getString(\"createtime\"));\r\n//                                System.out.println(payMoney.toString());\r\n//                            } catch (Exception e) {\r\n//                                log.error(\"kafka输入数据异常\");\r\n//                            }\r\n                            PayMoney payMoney = payMoneyJson.toJavaObject(PayMoney.class);\r\n                            System.out.println(payMoney.toString());\r\n                            return payMoney;\r\n                        }\r\n                    }\r\n            ).setParallelism(2).name(\"Transform JavaBean\");\r\n\r\n\r\n        mapDStream\r\n                .addSink(JdbcSink\r\n                        .sink(\r\n//                              params.get(SQL),\r\n                                sql,\r\n                                new CkSinkBuilder(), new JdbcExecutionOptions\r\n                                        .Builder()\r\n                                        .withBatchSize(100)\r\n                                        .build(),\r\n                                new JdbcConnectionOptions\r\n                                        .JdbcConnectionOptionsBuilder()\r\n//                                        .withUrl(\"jdbc:clickhouse://hadoop105:8123/default\")\r\n//                                        .withUrl(\"jdbc:clickhouse://101.37.247.143:8123/\"+params.get(DATABASE))\r\n                                        .withUrl(\"jdbc:clickhouse://101.37.247.143:8123/default\")\r\n                                        .withUsername(\"\")\r\n                                        .withPassword(\"\")\r\n                                        .withDriverName(\"ru.yandex.clickhouse.ClickHouseDriver\")\r\n                                        .build()\r\n                        )\r\n                ).name(\"ToClickHouse\");\r\n\r\n\r\n        try {\r\n            env.execute(\"输出ClickHouse\");\r\n        } catch (Exception e) {\r\n            e.printStackTrace();\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/realtime/To_CK.java	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
++++ src/main/java/realtime/To_CK.java	(date 1609235006309)
+@@ -5,6 +5,7 @@
+ import com.alibaba.fastjson.JSONObject;
+ import org.apache.flink.api.common.functions.FlatMapFunction;
+ import org.apache.flink.api.common.functions.MapFunction;
++import org.apache.flink.api.common.restartstrategy.RestartStrategies;
+ import org.apache.flink.api.common.serialization.SimpleStringSchema;
+ import org.apache.flink.api.java.utils.ParameterTool;
+ import org.apache.flink.connector.jdbc.JdbcConnectionOptions;
+@@ -16,6 +17,7 @@
+ import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+ import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer010;
+ import org.apache.flink.util.Collector;
++import util.MailUtil;
+ import util.ParseJsonData;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+@@ -28,18 +30,17 @@
+ 
+     @Override
+     public void accept(PreparedStatement ps, PayMoney payMoney) throws SQLException {
+-
+-        if (null != payMoney.getUid()) {
+-            ps.setString(1, payMoney.getUid());
+-        }else {
+-            ps.setString(1, "");
+-        }
++            if (null != payMoney.getUid()) {
++                ps.setString(1, payMoney.getUid());
++            }else {
++                ps.setString(1, "");
++            }
+ 
+-        if (null != payMoney.getPaymoney()) {
+-            ps.setString(2, payMoney.getPaymoney());
+-        }else {
+-            ps.setString(2, "");
+-        }
++            if (null != payMoney.getPaymoney()) {
++                ps.setString(2, payMoney.getPaymoney());
++            }else {
++                ps.setString(2, "");
++            }
+ 
+             ps.setString(3, payMoney.getVip_id());
+ 
+@@ -48,28 +49,30 @@
+             }else {
+             ps.setString(4, "");
+         }
+-
+-        ps.setString(5, payMoney.getSiteid());
+-        ps.setString(6, payMoney.getDt());
+-        ps.setString(7, payMoney.getDn());
+-        ps.setString(8, payMoney.getCreatetime());
++            ps.setString(5, payMoney.getSiteid());
++            ps.setString(6, payMoney.getDt());
++            ps.setString(7, payMoney.getDn());
++            ps.setString(8, payMoney.getCreatetime());
++
+     }
+ }
+ 
+ public class To_CK {
+-    private static String BOOTSTRAP_SERVERS = "bootstrap.servers";
+-    private static String GROUP_ID = "group.id";
+-    private static String TOPIC = "topic";
+-    private static String SQL="sql";
+-    private static String DATABASE= "database";
+-    private static String START_FROMTIMESTAMP="start_fromtimestamp";
+-    private static final Logger log = LoggerFactory.getLogger(To_CK.class);
++    public static String BOOTSTRAP_SERVERS = "bootstrap.servers";
++    public static String GROUP_ID = "group.id";
++    public static String TOPIC = "topic";
++    public static String SQL="sql";
++    public static String DATABASE= "database";
++    public static String START_FROMTIMESTAMP="start_fromtimestamp";
++    public static final Logger log = LoggerFactory.getLogger(To_CK.class);
+ 
+     public static void main(String[] args)  {
+         //从命令行获取参数
+         ParameterTool params = ParameterTool.fromArgs(args);
+         //获得环境
+         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
++        //设置程序失败自动重启策略
++//        env.setRestartStrategy(RestartStrategies.fixedDelayRestart(5, 3000l));
+         env.getConfig().setGlobalJobParameters(params);
+         env.setParallelism(1); //设置并发为1，防止打印控制台乱序
+ //        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime); //Flink 默认使用 ProcessingTime 处理,设置成event time
+@@ -141,32 +144,33 @@
+             ).setParallelism(2).name("Transform JavaBean");
+ 
+ 
+-        mapDStream
+-                .addSink(JdbcSink
+-                        .sink(
+-//                              params.get(SQL),
+-                                sql,
+-                                new CkSinkBuilder(), new JdbcExecutionOptions
+-                                        .Builder()
+-                                        .withBatchSize(100)
+-                                        .build(),
+-                                new JdbcConnectionOptions
+-                                        .JdbcConnectionOptionsBuilder()
+-//                                        .withUrl("jdbc:clickhouse://hadoop105:8123/default")
+-//                                        .withUrl("jdbc:clickhouse://101.37.247.143:8123/"+params.get(DATABASE))
+-                                        .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
+-                                        .withUsername("")
+-                                        .withPassword("")
+-                                        .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
+-                                        .build()
+-                        )
+-                ).name("ToClickHouse");
+-
+-
+-        try {
++        try {
++            mapDStream
++                    .addSink(JdbcSink
++                            .sink(
++    //                              params.get(SQL),
++                                    sql,
++                                    new CkSinkBuilder(), new JdbcExecutionOptions
++                                            .Builder()
++                                            .withBatchSize(10)      //批量写入的条数
++//                                            .withBatchIntervalMs(10000L)//批量写入的时间间隔/ms
++                                            .withMaxRetries(1)         //插入重试次数
++                                            .build(),
++                                    new JdbcConnectionOptions
++                                            .JdbcConnectionOptionsBuilder()
++//                                          .withUrl("jdbc:clickhouse://hadoop105:8123/default")
++    //                                      .withUrl("jdbc:clickhouse://101.37.247.143:8123/"+params.get(DATABASE))
++                                            .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
++                                            .withUsername("")
++                                            .withPassword("")
++                                            .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
++                                            .build()
++                            )
++                    ).name("ToClickHouse");
+             env.execute("输出ClickHouse");
+         } catch (Exception e) {
+-            e.printStackTrace();
++            log.error("数据入库异常！！ { }请检查ClickHouse服务是否异常");
++            MailUtil.sendFailMail();
+         }
+     }
+ }
+Index: .idea/libraries/Maven__org_apache_flink_flink_runtime_web_2_11_1_10_0.xml
+===================================================================
+--- .idea/libraries/Maven__org_apache_flink_flink_runtime_web_2_11_1_10_0.xml	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
++++ .idea/libraries/Maven__org_apache_flink_flink_runtime_web_2_11_1_10_0.xml	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
+@@ -1,13 +0,0 @@
+-<component name="libraryTable">
+-  <library name="Maven: org.apache.flink:flink-runtime-web_2.11:1.10.0">
+-    <CLASSES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-runtime-web_2.11/1.10.0/flink-runtime-web_2.11-1.10.0.jar!/" />
+-    </CLASSES>
+-    <JAVADOC>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-runtime-web_2.11/1.10.0/flink-runtime-web_2.11-1.10.0-javadoc.jar!/" />
+-    </JAVADOC>
+-    <SOURCES>
+-      <root url="jar://$MAVEN_REPOSITORY$/org/apache/flink/flink-runtime-web_2.11/1.10.0/flink-runtime-web_2.11-1.10.0-sources.jar!/" />
+-    </SOURCES>
+-  </library>
+-</component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\" />\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
++++ .idea/misc.xml	(date 1609207435599)
+@@ -7,5 +7,5 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+ </project>
+\ No newline at end of file
+Index: src/main/java/util/MailUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/util/MailUtil.java	(date 1609208368363)
++++ src/main/java/util/MailUtil.java	(date 1609208368363)
+@@ -0,0 +1,69 @@
++package util;
++import java.util.Properties;
++import javax.mail.Authenticator;
++import javax.mail.MessagingException;
++import javax.mail.PasswordAuthentication;
++import javax.mail.Session;
++import javax.mail.Transport;
++import javax.mail.internet.AddressException;
++import javax.mail.internet.InternetAddress;
++import javax.mail.internet.MimeMessage;
++import javax.mail.internet.MimeMessage.RecipientType;
++/**
++ * @author xuweiwei
++ * @version 1.0
++ * @todo 2020/12/29 9:59:47
++ */
++
++
++public class MailUtil {
++
++    public static void sendFailMail() {
++        // 创建Properties 类用于记录邮箱的一些属性
++        Properties props = new Properties();
++        // 表示SMTP发送邮件，必须进行身份验证
++        props.put("mail.smtp.auth", "true");
++        //此处填写SMTP服务器
++        props.put("mail.smtp.host", "smtp.qq.com");
++        //端口号，QQ邮箱端口587
++        props.put("mail.smtp.port", "587");
++        // 此处填写，写信人的账号
++        props.put("mail.user", "1009216330@qq.com");
++        // 此处填写16位STMP口令
++        props.put("mail.password", "jfepohfdcwxsbfdc");
++
++        // 构建授权信息，用于进行SMTP进行身份验证
++        Authenticator authenticator = new Authenticator() {
++            protected PasswordAuthentication getPasswordAuthentication() {
++                // 用户名、密码
++                String userName = props.getProperty("mail.user");
++                String password = props.getProperty("mail.password");
++                return new PasswordAuthentication(userName, password);
++            }
++        };
++        // 使用环境属性和授权信息，创建邮件会话
++        try {
++            Session mailSession = Session.getInstance(props, authenticator);
++            // 创建邮件消息
++            MimeMessage message = new MimeMessage(mailSession);
++            // 设置发件人
++            InternetAddress form = new InternetAddress(props.getProperty("mail.user"));
++            message.setFrom(form);
++
++            // 设置收件人的邮箱
++            InternetAddress to = new InternetAddress("1009216330@qq.com");
++            message.setRecipient(RecipientType.TO, to);
++
++            // 设置邮件标题
++            message.setSubject("则一速达实时入库任务失败");
++
++            // 设置邮件的内容体
++            message.setContent("则一速达实时入库任务失败，请检查ClikHouse服务是否宕机,以及源头数据是否存在问题",
++                    "text/html;charset=UTF-8");
++            // 最后当然就是发送邮件啦
++            Transport.send(message);
++        } catch (MessagingException e) {
++            e.printStackTrace();
++        }
++    }
++}
+Index: .idea/libraries/Java_EE_6_Java_EE_6.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Java_EE_6_Java_EE_6.xml	(date 1609207482826)
++++ .idea/libraries/Java_EE_6_Java_EE_6.xml	(date 1609207482826)
+@@ -0,0 +1,15 @@
++<component name="libraryTable">
++  <library name="Java EE 6-Java EE 6">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/lib/javax.annotation.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javax.jms.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javax.persistence.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javax.ejb.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javax.transaction.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javax.servlet.jsp.jstl.jar!/" />
++      <root url="jar://$PROJECT_DIR$/lib/javax.resource.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"ALL\" />\r\n  </component>\r\n  <component name=\"BranchesTreeState\">\r\n    <expand>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"LOCAL_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n      <path>\r\n        <item name=\"ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"REMOTE_ROOT\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n        <item name=\"GROUP_NODE:origin\" type=\"e8cecc67:BranchNodeDescriptor\" />\r\n      </path>\r\n    </expand>\r\n    <select />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"5e8e171d-3012-410b-a874-8dbb17358f77\" name=\"Default Changelist\" comment=\"新增动态传参\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/jarRepositories.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/realtime/To_CK.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/realtime/To_CK.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"CodeStyleSettingsInfer\">\r\n    <option name=\"done\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"DatabaseView\">\r\n    <option name=\"SHOW_INTERMEDIATE\" value=\"true\" />\r\n    <option name=\"GROUP_SCHEMA\" value=\"true\" />\r\n    <option name=\"GROUP_CONTENTS\" value=\"false\" />\r\n    <option name=\"SORT_POSITIONED\" value=\"false\" />\r\n    <option name=\"SHOW_TABLE_DETAILS\" value=\"true\" />\r\n    <option name=\"SHOW_EMPTY_GROUPS\" value=\"false\" />\r\n    <option name=\"AUTO_SCROLL_FROM_SOURCE\" value=\"false\" />\r\n    <expand />\r\n    <select />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"UPDATE_TYPE\" value=\"MERGE\" />\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHome\" value=\"D:\\Install\\apache-maven-3.5.4\" />\r\n        <option name=\"userSettingsFile\" value=\"D:\\Install\\apache-maven-3.5.4\\conf\\settings.xml\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"MavenRunner\">\r\n    <option name=\"skipTests\" value=\"true\" />\r\n  </component>\r\n  <component name=\"ProjectCodeStyleSettingsMigration\">\r\n    <option name=\"version\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1m3IzrxRpA5X7mpb7tIrkvgsUwR\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/../education-flink-online\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"project.structure.last.edited\" value=\"Modules\" />\r\n    <property name=\"project.structure.proportion\" value=\"0.15\" />\r\n    <property name=\"project.structure.side.proportion\" value=\"0.240625\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"MavenSettings\" />\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Application.To_CK\">\r\n    <configuration name=\"FlinkRealTimeCollection\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"realtime.FlinkRealTimeCollection\" />\r\n      <module name=\"realtimecollectortion\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"realtime.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"LogTest\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"LogTest\" />\r\n      <module name=\"realtimecollectortion\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"StrUtils\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"util.StrUtils\" />\r\n      <module name=\"realtimecollectortion\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"util.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration name=\"To_CK\" type=\"Application\" factoryName=\"Application\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"realtime.To_CK\" />\r\n      <module name=\"realtimecollectortion\" />\r\n      <extension name=\"coverage\">\r\n        <pattern>\r\n          <option name=\"PATTERN\" value=\"realtime.*\" />\r\n          <option name=\"ENABLED\" value=\"true\" />\r\n        </pattern>\r\n      </extension>\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"ArquillianJUnit\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"class\" />\r\n      <option name=\"VM_PARAMETERS\" />\r\n      <option name=\"WORKING_DIRECTORY\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <configuration default=\"true\" type=\"ArquillianTestNG\" factoryName=\"\" nameIsGenerated=\"true\">\r\n      <option name=\"arquillianRunConfiguration\">\r\n        <value>\r\n          <option name=\"containerStateName\" value=\"\" />\r\n        </value>\r\n      </option>\r\n      <option name=\"TEST_OBJECT\" value=\"CLASS\" />\r\n      <properties />\r\n      <listeners />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Application.To_CK\" />\r\n      <item itemvalue=\"Application.FlinkRealTimeCollection\" />\r\n      <item itemvalue=\"Application.StrUtils\" />\r\n      <item itemvalue=\"Application.LogTest\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Application.To_CK\" />\r\n        <item itemvalue=\"Application.LogTest\" />\r\n        <item itemvalue=\"Application.StrUtils\" />\r\n        <item itemvalue=\"Application.FlinkRealTimeCollection\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"5e8e171d-3012-410b-a874-8dbb17358f77\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1608716123689</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1608716123689</updated>\r\n      <workItem from=\"1608716125027\" duration=\"3242000\" />\r\n      <workItem from=\"1608769808746\" duration=\"10847000\" />\r\n      <workItem from=\"1608786362932\" duration=\"12478000\" />\r\n      <workItem from=\"1609033094556\" duration=\"2982000\" />\r\n      <workItem from=\"1609036283317\" duration=\"20313000\" />\r\n      <workItem from=\"1609127208307\" duration=\"14000\" />\r\n      <workItem from=\"1609127695412\" duration=\"232000\" />\r\n      <workItem from=\"1609128076067\" duration=\"13528000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"新增德鲁伊连接池 接通ClickHouse\">\r\n      <created>1608791070404</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608791070404</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"解决丢数据问题\">\r\n      <created>1608801805843</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1608801805843</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"新增动态传参\">\r\n      <created>1609127857372</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1609127857372</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n    <option name=\"oldMeFiltersMigrated\" value=\"true\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"新增德鲁伊连接池 接通ClickHouse\" />\r\n    <MESSAGE value=\"解决丢数据问题\" />\r\n    <MESSAGE value=\"新增动态传参\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"新增动态传参\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"586\" y=\"198\" key=\"#Inspections\" timestamp=\"1608718204400\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"586\" y=\"198\" key=\"#Inspections/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608718204400\" />\r\n    <state x=\"440\" y=\"94\" key=\"#Project_Structure\" timestamp=\"1609127222809\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"440\" y=\"94\" key=\"#Project_Structure/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1609127222809\" />\r\n    <state x=\"699\" y=\"216\" key=\"#com.intellij.ide.util.MemberChooser\" timestamp=\"1609135915303\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"699\" y=\"216\" key=\"#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1609135915303\" />\r\n    <state x=\"534\" y=\"0\" key=\"CommitChangelistDialog2\" timestamp=\"1608801799081\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"534\" y=\"0\" key=\"CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608801799081\" />\r\n    <state x=\"184\" y=\"85\" key=\"DiffContextDialog\" timestamp=\"1608790985735\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"184\" y=\"85\" key=\"DiffContextDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608790985735\" />\r\n    <state x=\"740\" y=\"274\" key=\"FileChooserDialogImpl\" timestamp=\"1608716313481\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"740\" y=\"274\" key=\"FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608716313481\" />\r\n    <state x=\"801\" y=\"420\" key=\"Github.ShareDialog\" timestamp=\"1608719248251\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"801\" y=\"420\" key=\"Github.ShareDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608719248251\" />\r\n    <state x=\"703\" y=\"139\" key=\"Github.UntrackedFilesDialog\" timestamp=\"1608719278306\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"703\" y=\"139\" key=\"Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608719278306\" />\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1609149315413\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1609149315413\" />\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.center\" timestamp=\"1609149315413\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1609149315413\" />\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.left\" timestamp=\"1609149315412\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1609149315412\" />\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.right\" timestamp=\"1609149315413\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"197\" key=\"GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1609149315413\" />\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.bottom\" timestamp=\"1608801848268\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608801848268\" />\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.center\" timestamp=\"1608801848268\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608801848268\" />\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.left\" timestamp=\"1608801848268\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608801848268\" />\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.right\" timestamp=\"1608801848268\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"256\" key=\"GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608801848268\" />\r\n    <state x=\"540\" y=\"254\" key=\"IDE.errors.dialog\" timestamp=\"1608716170508\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"540\" y=\"254\" key=\"IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608716170508\" />\r\n    <state x=\"490\" y=\"174\" key=\"Maven.ArtifactSearchDialog\" timestamp=\"1608781612094\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"490\" y=\"174\" key=\"Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608781612094\" />\r\n    <state x=\"461\" y=\"164\" key=\"SettingsEditor\" timestamp=\"1608719234470\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"461\" y=\"164\" key=\"SettingsEditor/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608719234470\" />\r\n    <state x=\"552\" y=\"249\" key=\"Vcs.Push.Dialog.v2\" timestamp=\"1608801827195\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"552\" y=\"249\" key=\"Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608801827195\" />\r\n    <state x=\"762\" y=\"429\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2\" timestamp=\"1609131806913\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"762\" y=\"429\" key=\"com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1609131806913\" />\r\n    <state x=\"623\" y=\"225\" width=\"672\" height=\"678\" key=\"search.everywhere.popup\" timestamp=\"1608772954164\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"623\" y=\"225\" width=\"672\" height=\"678\" key=\"search.everywhere.popup/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608772954164\" />\r\n    <state x=\"682\" y=\"424\" key=\"vcs.readOnlyHandler.ReadOnlyStatusDialog\" timestamp=\"1608716208398\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"682\" y=\"424\" key=\"vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1608716208398\" />\r\n  </component>\r\n  <component name=\"masterDetails\">\r\n    <states>\r\n      <state key=\"ArtifactsStructureConfigurable.UI\">\r\n        <settings>\r\n          <artifact-editor />\r\n          <splitter-proportions>\r\n            <option name=\"proportions\">\r\n              <list>\r\n                <option value=\"0.2\" />\r\n              </list>\r\n            </option>\r\n          </splitter-proportions>\r\n        </settings>\r\n      </state>\r\n      <state key=\"FacetStructureConfigurable.UI\">\r\n        <settings>\r\n          <last-edited>No facets are configured</last-edited>\r\n          <splitter-proportions>\r\n            <option name=\"proportions\">\r\n              <list>\r\n                <option value=\"0.2\" />\r\n              </list>\r\n            </option>\r\n          </splitter-proportions>\r\n        </settings>\r\n      </state>\r\n      <state key=\"GlobalLibrariesConfigurable.UI\">\r\n        <settings>\r\n          <last-edited>scala-sdk-2.11.8</last-edited>\r\n          <splitter-proportions>\r\n            <option name=\"proportions\">\r\n              <list>\r\n                <option value=\"0.2\" />\r\n              </list>\r\n            </option>\r\n          </splitter-proportions>\r\n        </settings>\r\n      </state>\r\n      <state key=\"JdkListConfigurable.UI\">\r\n        <settings>\r\n          <last-edited>1.8</last-edited>\r\n          <splitter-proportions>\r\n            <option name=\"proportions\">\r\n              <list>\r\n                <option value=\"0.2\" />\r\n              </list>\r\n            </option>\r\n          </splitter-proportions>\r\n        </settings>\r\n      </state>\r\n      <state key=\"ModuleStructureConfigurable.UI\">\r\n        <settings>\r\n          <last-edited>realtimecollectortion</last-edited>\r\n          <splitter-proportions>\r\n            <option name=\"proportions\">\r\n              <list>\r\n                <option value=\"0.240625\" />\r\n                <option value=\"0.6\" />\r\n              </list>\r\n            </option>\r\n          </splitter-proportions>\r\n        </settings>\r\n      </state>\r\n      <state key=\"ProjectLibrariesConfigurable.UI\">\r\n        <settings>\r\n          <last-edited>Maven: asm:asm:3.1</last-edited>\r\n          <splitter-proportions>\r\n            <option name=\"proportions\">\r\n              <list>\r\n                <option value=\"0.2\" />\r\n              </list>\r\n            </option>\r\n          </splitter-proportions>\r\n        </settings>\r\n      </state>\r\n    </states>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
++++ .idea/workspace.xml	(date 1609236090818)
+@@ -19,11 +19,24 @@
+         <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+       </path>
+     </expand>
+-    <select />
++    <select>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </select>
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="5e8e171d-3012-410b-a874-8dbb17358f77" name="Default Changelist" comment="新增动态传参">
+-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
++    <list default="true" id="5e8e171d-3012-410b-a874-8dbb17358f77" name="Default Changelist" comment="">
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Java_EE_6_Java_EE_6.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_mail_mail_1_4_7.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/src/main/java/util/MailUtil.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_flink_flink_runtime_web_2_11_1_10_0.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/realtimecollectortion.iml" beforeDir="false" afterPath="$PROJECT_DIR$/realtimecollectortion.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/realtime/ClickhouseSink.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/realtime/ClickhouseSink.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/realtime/To_CK.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/realtime/To_CK.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+@@ -91,7 +104,7 @@
+     <property name="node.js.path.for.package.tslint" value="project" />
+     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+-    <property name="project.structure.last.edited" value="Modules" />
++    <property name="project.structure.last.edited" value="Global Libraries" />
+     <property name="project.structure.proportion" value="0.15" />
+     <property name="project.structure.side.proportion" value="0.240625" />
+     <property name="settings.editor.selected.configurable" value="MavenSettings" />
+@@ -117,6 +130,19 @@
+         <option name="Make" enabled="true" />
+       </method>
+     </configuration>
++    <configuration name="MailUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="util.MailUtil" />
++      <module name="realtimecollectortion" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="util.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
+     <configuration name="StrUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+       <option name="MAIN_CLASS_NAME" value="util.StrUtils" />
+       <module name="realtimecollectortion" />
+@@ -174,10 +200,12 @@
+       <item itemvalue="Application.FlinkRealTimeCollection" />
+       <item itemvalue="Application.StrUtils" />
+       <item itemvalue="Application.LogTest" />
++      <item itemvalue="Application.MailUtil" />
+     </list>
+     <recent_temporary>
+       <list>
+         <item itemvalue="Application.To_CK" />
++        <item itemvalue="Application.MailUtil" />
+         <item itemvalue="Application.LogTest" />
+         <item itemvalue="Application.StrUtils" />
+         <item itemvalue="Application.FlinkRealTimeCollection" />
+@@ -199,7 +227,9 @@
+       <workItem from="1609036283317" duration="20313000" />
+       <workItem from="1609127208307" duration="14000" />
+       <workItem from="1609127695412" duration="232000" />
+-      <workItem from="1609128076067" duration="13528000" />
++      <workItem from="1609128076067" duration="14440000" />
++      <workItem from="1609201071020" duration="14575000" />
++      <workItem from="1609232406347" duration="3649000" />
+     </task>
+     <task id="LOCAL-00001" summary="新增德鲁伊连接池 接通ClickHouse">
+       <created>1608791070404</created>
+@@ -222,7 +252,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1609127857372</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="新增Log4j的类 以及新增FlatMapFunction">
++      <created>1609150608215</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1609150608215</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -244,33 +281,38 @@
+     <MESSAGE value="新增德鲁伊连接池 接通ClickHouse" />
+     <MESSAGE value="解决丢数据问题" />
+     <MESSAGE value="新增动态传参" />
+-    <option name="LAST_COMMIT_MESSAGE" value="新增动态传参" />
++    <MESSAGE value="新增Log4j的类 以及新增FlatMapFunction" />
++    <option name="LAST_COMMIT_MESSAGE" value="新增Log4j的类 以及新增FlatMapFunction" />
+   </component>
+   <component name="WindowStateProjectService">
+     <state x="586" y="198" key="#Inspections" timestamp="1608718204400">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="586" y="198" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1608718204400" />
+-    <state x="440" y="94" key="#Project_Structure" timestamp="1609127222809">
++    <state x="440" y="94" key="#Project_Structure" timestamp="1609207435163">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1609127222809" />
++    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1609207435163" />
+     <state x="699" y="216" key="#com.intellij.ide.util.MemberChooser" timestamp="1609135915303">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="699" y="216" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1609135915303" />
+-    <state x="534" y="0" key="CommitChangelistDialog2" timestamp="1608801799081">
++    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609208607968">
++      <screen x="0" y="0" width="1920" height="1040" />
++    </state>
++    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609208607968" />
++    <state x="534" y="0" key="CommitChangelistDialog2" timestamp="1609150606664">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="534" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1608801799081" />
++    <state x="534" y="0" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1609150606664" />
+     <state x="184" y="85" key="DiffContextDialog" timestamp="1608790985735">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="184" y="85" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608790985735" />
+-    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1608716313481">
++    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1609207451007">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1608716313481" />
++    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1609207451007" />
+     <state x="801" y="420" key="Github.ShareDialog" timestamp="1608719248251">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -279,22 +321,22 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="703" y="139" key="Github.UntrackedFilesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608719278306" />
+-    <state width="1877" height="197" key="GridCell.Tab.0.bottom" timestamp="1609149315413">
++    <state width="1877" height="360" key="GridCell.Tab.0.bottom" timestamp="1609235038331">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="197" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609149315413" />
+-    <state width="1877" height="197" key="GridCell.Tab.0.center" timestamp="1609149315413">
++    <state width="1877" height="360" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1609235038331" />
++    <state width="1877" height="360" key="GridCell.Tab.0.center" timestamp="1609235038331">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="197" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609149315413" />
+-    <state width="1877" height="197" key="GridCell.Tab.0.left" timestamp="1609149315412">
++    <state width="1877" height="360" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1609235038331" />
++    <state width="1877" height="360" key="GridCell.Tab.0.left" timestamp="1609235038331">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="197" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609149315412" />
+-    <state width="1877" height="197" key="GridCell.Tab.0.right" timestamp="1609149315413">
++    <state width="1877" height="360" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1609235038331" />
++    <state width="1877" height="360" key="GridCell.Tab.0.right" timestamp="1609235038331">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state width="1877" height="197" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609149315413" />
++    <state width="1877" height="360" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1609235038331" />
+     <state width="1877" height="256" key="GridCell.Tab.1.bottom" timestamp="1608801848268">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -311,10 +353,10 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state width="1877" height="256" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1608801848268" />
+-    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1608716170508">
++    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1609201525153">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608716170508" />
++    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040@0.0.1920.1040" timestamp="1609201525153" />
+     <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1608781612094">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -323,14 +365,14 @@
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1608719234470" />
+-    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1608801827195">
++    <state x="552" y="249" key="Vcs.Push.Dialog.v2" timestamp="1609150635246">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1608801827195" />
+-    <state x="762" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609131806913">
++    <state x="552" y="249" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609150635246" />
++    <state x="762" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609236090790">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+-    <state x="762" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609131806913" />
++    <state x="762" y="429" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1609236090790" />
+     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1608772954164">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+@@ -340,81 +382,4 @@
+     </state>
+     <state x="682" y="424" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1608716208398" />
+   </component>
+-  <component name="masterDetails">
+-    <states>
+-      <state key="ArtifactsStructureConfigurable.UI">
+-        <settings>
+-          <artifact-editor />
+-          <splitter-proportions>
+-            <option name="proportions">
+-              <list>
+-                <option value="0.2" />
+-              </list>
+-            </option>
+-          </splitter-proportions>
+-        </settings>
+-      </state>
+-      <state key="FacetStructureConfigurable.UI">
+-        <settings>
+-          <last-edited>No facets are configured</last-edited>
+-          <splitter-proportions>
+-            <option name="proportions">
+-              <list>
+-                <option value="0.2" />
+-              </list>
+-            </option>
+-          </splitter-proportions>
+-        </settings>
+-      </state>
+-      <state key="GlobalLibrariesConfigurable.UI">
+-        <settings>
+-          <last-edited>scala-sdk-2.11.8</last-edited>
+-          <splitter-proportions>
+-            <option name="proportions">
+-              <list>
+-                <option value="0.2" />
+-              </list>
+-            </option>
+-          </splitter-proportions>
+-        </settings>
+-      </state>
+-      <state key="JdkListConfigurable.UI">
+-        <settings>
+-          <last-edited>1.8</last-edited>
+-          <splitter-proportions>
+-            <option name="proportions">
+-              <list>
+-                <option value="0.2" />
+-              </list>
+-            </option>
+-          </splitter-proportions>
+-        </settings>
+-      </state>
+-      <state key="ModuleStructureConfigurable.UI">
+-        <settings>
+-          <last-edited>realtimecollectortion</last-edited>
+-          <splitter-proportions>
+-            <option name="proportions">
+-              <list>
+-                <option value="0.240625" />
+-                <option value="0.6" />
+-              </list>
+-            </option>
+-          </splitter-proportions>
+-        </settings>
+-      </state>
+-      <state key="ProjectLibrariesConfigurable.UI">
+-        <settings>
+-          <last-edited>Maven: asm:asm:3.1</last-edited>
+-          <splitter-proportions>
+-            <option name="proportions">
+-              <list>
+-                <option value="0.2" />
+-              </list>
+-            </option>
+-          </splitter-proportions>
+-        </settings>
+-      </state>
+-    </states>
+-  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/libraries/Maven__javax_mail_mail_1_4_7.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/libraries/Maven__javax_mail_mail_1_4_7.xml	(date 1609207600229)
++++ .idea/libraries/Maven__javax_mail_mail_1_4_7.xml	(date 1609207600229)
+@@ -0,0 +1,13 @@
++<component name="libraryTable">
++  <library name="Maven: javax.mail:mail:1.4.7">
++    <CLASSES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.7/mail-1.4.7.jar!/" />
++    </CLASSES>
++    <JAVADOC>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.7/mail-1.4.7-javadoc.jar!/" />
++    </JAVADOC>
++    <SOURCES>
++      <root url="jar://$MAVEN_REPOSITORY$/javax/mail/mail/1.4.7/mail-1.4.7-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: realtimecollectortion.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule=\"true\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\" LANGUAGE_LEVEL=\"JDK_1_8\">\r\n    <output url=\"file://$MODULE_DIR$/target/classes\" />\r\n    <output-test url=\"file://$MODULE_DIR$/target/test-classes\" />\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/java\" isTestSource=\"false\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/main/resources\" type=\"java-resource\" />\r\n      <sourceFolder url=\"file://$MODULE_DIR$/src/test/java\" isTestSource=\"true\" />\r\n      <excludeFolder url=\"file://$MODULE_DIR$/target\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-clients_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-core:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-annotations:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-metrics-core:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.commons:commons-lang3:3.3.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.esotericsoftware.kryo:kryo:2.24.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.esotericsoftware.minlog:minlog:1.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.objenesis:objenesis:2.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-runtime_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-queryable-state-client-java:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-hadoop-fs:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.scala-lang:scala-library:2.11.12\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.typesafe.akka:akka-actor_2.11:2.5.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.typesafe:config:1.3.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.scala-lang.modules:scala-java8-compat_2.11:0.7.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.typesafe.akka:akka-stream_2.11:2.5.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.reactivestreams:reactive-streams:1.0.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.typesafe:ssl-config-core_2.11:0.3.7\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.typesafe.akka:akka-protobuf_2.11:2.5.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.typesafe.akka:akka-slf4j_2.11:2.5.21\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.clapper:grizzled-slf4j_2.11:1.3.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.github.scopt:scopt_2.11:3.5.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.xerial.snappy:snappy-java:1.1.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.twitter:chill_2.11:0.7.6\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.twitter:chill-java:0.7.6\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.lz4:lz4-java:1.5.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-optimizer_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-java:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-cli:commons-cli:1.3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.slf4j:slf4j-api:1.7.15\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.google.code.findbugs:jsr305:1.3.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:force-shading:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-connector-kafka-0.11_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-connector-kafka-0.10_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-connector-kafka-0.9_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-connector-kafka-base_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.kafka:kafka-clients:0.11.0.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: mysql:mysql-connector-java:5.1.44\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-runtime-web_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-shaded-netty:4.1.39.Final-9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-shaded-guava:18.0-9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-shaded-jackson:2.10.1-9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.javassist:javassist:3.24.0-GA\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-planner_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-api-java-bridge_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-streaming-java_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-api-scala-bridge_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-scala_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-streaming-scala_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-planner-blink_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-api-java:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-api-scala_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.scala-lang:scala-reflect:2.11.12\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.scala-lang:scala-compiler:2.11.12\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.scala-lang.modules:scala-xml_2.11:1.0.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-runtime-blink_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.janino:janino:3.0.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.janino:commons-compiler:3.0.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.calcite.avatica:avatica-core:1.15.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.reflections:reflections:0.9.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-table-common:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-shaded-asm-7:7.1-9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: de.unkrig.jdisasm:jdisasm:1.0.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: de.unkrig.commons:commons-nullanalysis:1.2.13\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.alibaba:fastjson:1.2.68\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-statebackend-rocksdb_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.data-artisans:frocksdbjni:5.17.2-artisans-2.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-connector-filesystem_2.11:1.10.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-hdfs:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.mortbay.jetty:jetty:6.1.26\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.mortbay.jetty:jetty-util:6.1.26\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.jersey:jersey-core:1.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.jersey:jersey-server:1.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: asm:asm:3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-codec:commons-codec:1.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-io:commons-io:2.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-lang:commons-lang:2.6\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-logging:commons-logging:1.1.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-daemon:commons-daemon:1.0.13\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: log4j:log4j:1.2.17\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.google.protobuf:protobuf-java:2.5.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.servlet:servlet-api:2.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.jackson:jackson-core-asl:1.9.13\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.jackson:jackson-mapper-asl:1.9.13\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: xmlenc:xmlenc:0.52\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: io.netty:netty:3.6.2.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: io.netty:netty-all:4.0.23.Final\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: xerces:xercesImpl:2.9.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: xml-apis:xml-apis:1.3.04\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.htrace:htrace-core:3.1.0-incubating\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.fusesource.leveldbjni:leveldbjni-all:1.8\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-common:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-annotations:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"module-library\">\r\n      <library name=\"Maven: jdk.tools:jdk.tools:1.8\">\r\n        <CLASSES>\r\n          <root url=\"jar://C:/Program Files/Java/jdk1.8.0_161/lib/tools.jar!/\" />\r\n        </CLASSES>\r\n        <JAVADOC />\r\n        <SOURCES />\r\n      </library>\r\n    </orderEntry>\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.commons:commons-math3:3.1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-httpclient:commons-httpclient:3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-net:commons-net:3.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-collections:commons-collections:3.2.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"RUNTIME\" name=\"Maven: javax.servlet.jsp:jsp-api:2.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.jersey:jersey-json:1.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.jettison:jettison:1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.xml.bind:jaxb-impl:2.2.3-1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.xml.bind:jaxb-api:2.2.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.xml.stream:stax-api:1.0-2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: javax.activation:activation:1.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.jackson:jackson-jaxrs:1.8.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.codehaus.jackson:jackson-xc:1.8.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: net.java.dev.jets3t:jets3t:0.9.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.jamesmurty.utils:java-xmlbuilder:0.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-configuration:commons-configuration:1.6\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-digester:commons-digester:1.8\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-beanutils:commons-beanutils:1.7.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: commons-beanutils:commons-beanutils-core:1.8.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.slf4j:slf4j-log4j12:1.7.10\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.avro:avro:1.7.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.thoughtworks.paranamer:paranamer:2.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.google.code.gson:gson:2.2.4\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-auth:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.directory.server:apacheds-kerberos-codec:2.0.0-M15\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.directory.server:apacheds-i18n:2.0.0-M15\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.directory.api:api-asn1-api:1.0.0-M20\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.directory.api:api-util:1.0.0-M20\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.curator:curator-framework:2.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.jcraft:jsch:0.1.42\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.curator:curator-client:2.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.curator:curator-recipes:2.7.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.zookeeper:zookeeper:3.4.6\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.commons:commons-compress:1.4.1\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.tukaani:xz:1.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-client:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-mapreduce-client-app:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-mapreduce-client-common:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-yarn-client:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-yarn-server-common:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-mapreduce-client-shuffle:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-yarn-api:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-mapreduce-client-core:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-yarn-common:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.sun.jersey:jersey-client:1.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.hadoop:hadoop-mapreduce-client-jobclient:2.7.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: junit:junit:4.12\" level=\"project\" />\r\n    <orderEntry type=\"library\" scope=\"TEST\" name=\"Maven: org.hamcrest:hamcrest-core:1.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.httpcomponents:httpclient:4.5.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.httpcomponents:httpcore:4.4.5\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.google.guava:guava:21.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: ru.yandex.clickhouse:clickhouse-jdbc:0.1.40\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.httpcomponents:httpmime:4.5.2\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: net.jpountz.lz4:lz4:1.3.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.fasterxml.jackson.core:jackson-databind:2.7.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.fasterxml.jackson.core:jackson-core:2.7.3\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: joda-time:joda-time:2.9.9\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: org.apache.flink:flink-connector-jdbc_2.11:1.12.0\" level=\"project\" />\r\n    <orderEntry type=\"library\" name=\"Maven: com.alibaba:druid:1.1.16\" level=\"project\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- realtimecollectortion.iml	(revision e47793bd744898f8264de22993e253cb6b1e38a6)
++++ realtimecollectortion.iml	(date 1609234928026)
+@@ -11,6 +11,7 @@
+     </content>
+     <orderEntry type="inheritedJdk" />
+     <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-clients_2.11:1.10.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-core:1.10.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-annotations:1.10.0" level="project" />
+@@ -19,9 +20,13 @@
+     <orderEntry type="library" name="Maven: com.esotericsoftware.kryo:kryo:2.24.0" level="project" />
+     <orderEntry type="library" name="Maven: com.esotericsoftware.minlog:minlog:1.2" level="project" />
+     <orderEntry type="library" name="Maven: org.objenesis:objenesis:2.1" level="project" />
++    <orderEntry type="library" name="Maven: org.apache.flink:flink-shaded-guava:18.0-9.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-runtime_2.11:1.10.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-queryable-state-client-java:1.10.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-hadoop-fs:1.10.0" level="project" />
++    <orderEntry type="library" name="Maven: org.apache.flink:flink-shaded-netty:4.1.39.Final-9.0" level="project" />
++    <orderEntry type="library" name="Maven: org.apache.flink:flink-shaded-jackson:2.10.1-9.0" level="project" />
++    <orderEntry type="library" name="Maven: org.javassist:javassist:3.24.0-GA" level="project" />
+     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.12" level="project" />
+     <orderEntry type="library" name="Maven: com.typesafe.akka:akka-actor_2.11:2.5.21" level="project" />
+     <orderEntry type="library" name="Maven: com.typesafe:config:1.3.3" level="project" />
+@@ -49,11 +54,6 @@
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-connector-kafka-base_2.11:1.10.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.kafka:kafka-clients:0.11.0.2" level="project" />
+     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.44" level="project" />
+-    <orderEntry type="library" name="Maven: org.apache.flink:flink-runtime-web_2.11:1.10.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.apache.flink:flink-shaded-netty:4.1.39.Final-9.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.apache.flink:flink-shaded-guava:18.0-9.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.apache.flink:flink-shaded-jackson:2.10.1-9.0" level="project" />
+-    <orderEntry type="library" name="Maven: org.javassist:javassist:3.24.0-GA" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-table-planner_2.11:1.10.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-table-api-java-bridge_2.11:1.10.0" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-streaming-java_2.11:1.10.0" level="project" />
+@@ -124,7 +124,6 @@
+     <orderEntry type="library" name="Maven: com.sun.xml.bind:jaxb-impl:2.2.3-1" level="project" />
+     <orderEntry type="library" name="Maven: javax.xml.bind:jaxb-api:2.2.2" level="project" />
+     <orderEntry type="library" name="Maven: javax.xml.stream:stax-api:1.0-2" level="project" />
+-    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-jaxrs:1.8.3" level="project" />
+     <orderEntry type="library" name="Maven: org.codehaus.jackson:jackson-xc:1.8.3" level="project" />
+     <orderEntry type="library" name="Maven: net.java.dev.jets3t:jets3t:0.9.0" level="project" />
+@@ -173,6 +172,8 @@
+     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.7.3" level="project" />
+     <orderEntry type="library" name="Maven: joda-time:joda-time:2.9.9" level="project" />
+     <orderEntry type="library" name="Maven: org.apache.flink:flink-connector-jdbc_2.11:1.12.0" level="project" />
++    <orderEntry type="library" name="Maven: javax.mail:mail:1.4.7" level="project" />
++    <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+     <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.16" level="project" />
+   </component>
+ </module>
+\ No newline at end of file

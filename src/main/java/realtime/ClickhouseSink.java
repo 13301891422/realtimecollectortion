@@ -164,7 +164,7 @@ public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serial
     public void createConnection() throws Exception {
 
         // 插入语句
-        String insertStr = StrUtils.clickhouseInsertValue(this.tableColums, this.tablename);
+//        String insertStr = StrUtils.clickhouseInsertValue(this.tableColums, this.tablename);
         // 创建表
 //        List<String> createtableStrList = StrUtils.clickhouseCreatTable(this.tableColums, this.tablename,
 //                Constant.CKCLUSTERNAME, this.tableColums[3], this.types);

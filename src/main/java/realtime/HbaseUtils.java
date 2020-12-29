@@ -1,8 +1,8 @@
-package realtime;
-
-public class HbaseUtils {
-
-    public static void connectHbase() {
-
-    }
-}
+//package realtime;
+//
+//public class HbaseUtils {
+//
+//    public static void connectHbase() {
+//
+//    }
+//}
