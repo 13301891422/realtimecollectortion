@@ -19,7 +19,7 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-kafka-0.11_2.11</artifactId>
-            <version>1.10.0</version>
+            <version>1.11.2</version>
         </dependency>
 
         <dependency>
@@ -31,15 +31,15 @@
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner_2.11</artifactId>
-            <version>1.10.0</version>
-            <scope>provided</scope>
+            <version>1.12.0</version>
+            <!--<scope>provided</scope>-->
         </dependency>
 
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-table-planner-blink_2.11</artifactId>
-            <version>1.10.0</version>
-            <scope>provided</scope>
+            <version>1.12.0</version>
+            <!--<scope>provided</scope>-->
         </dependency>
 
 <!--        <dependency>-->
@@ -62,14 +62,8 @@
 
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-statebackend-rocksdb_2.11</artifactId>
-            <version>1.10.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-filesystem_2.11</artifactId>
-            <version>1.10.0</version>
+            <version>1.11.0</version>
         </dependency>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -222,6 +216,24 @@
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
                 </configuration>
             </plugin>
 
