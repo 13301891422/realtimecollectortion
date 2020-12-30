@@ -80,7 +80,9 @@ public class To_CK {
         Properties pros = new Properties();
 //        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
 //        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
-        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
+//        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
+          pros.setProperty("bootstrap.servers", "hadoop105:9092");
+
         pros.setProperty("group.id", "test");
         pros.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
@@ -151,15 +153,15 @@ public class To_CK {
                     sql,
                     new CkSinkBuilder(), new JdbcExecutionOptions
                     .Builder()
-                    .withBatchSize(10)      //批量写入的条数
+                    .withBatchSize(10000)      //批量写入的条数
 //                   .withBatchIntervalMs(10000L)//批量写入的时间间隔/ms
                     .withMaxRetries(1)         //插入重试次数
                     .build(),
                                                     new JdbcConnectionOptions
                                                     .JdbcConnectionOptionsBuilder()
-                                                    //.withUrl("jdbc:clickhouse://hadoop105:8123/default")
+                                                    .withUrl("jdbc:clickhouse://hadoop105:8123/default")
                                                     //.withUrl("jdbc:clickhouse://101.37.247.143:8123/"+params.get(DATABASE))
-                                                    .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
+//                                                    .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
                                                     .withUsername("")
                                                     .withPassword("")
                                                     .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
