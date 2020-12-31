@@ -34,15 +34,12 @@ class CkSinkBuilder implements JdbcStatementBuilder<PayMoney> {
         } else {
             ps.setString(1, "");
         }
-
         if (null != payMoney.getPaymoney()) {
             ps.setString(2, payMoney.getPaymoney());
         } else {
             ps.setString(2, "");
         }
-
         ps.setString(3, payMoney.getVip_id());
-
         if (null != payMoney.getUpdatetime()) {
             ps.setString(4, payMoney.getUpdatetime());
         } else {
@@ -52,7 +49,6 @@ class CkSinkBuilder implements JdbcStatementBuilder<PayMoney> {
         ps.setString(6, payMoney.getDt());
         ps.setString(7, payMoney.getDn());
         ps.setString(8, payMoney.getCreatetime());
-
     }
 }
 
@@ -73,30 +69,46 @@ public class To_CK {
         //设置程序失败自动重启策略
 //        env.setRestartStrategy(RestartStrategies.fixedDelayRestart(5, 3000l));
         env.getConfig().setGlobalJobParameters(params);
-        env.setParallelism(1); //设置并发为1，防止打印控制台乱序
+        env.setParallelism(2); //设置并发为1，防止打印控制台乱序
 //        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime); //Flink 默认使用 ProcessingTime 处理,设置成event time
 //        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);//Table Env 环境
         //从Kafka读取数据
         Properties pros = new Properties();
-//        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
-//        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
+        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
+        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
 //        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
-          pros.setProperty("bootstrap.servers", "hadoop105:9092");
+//          pros.setProperty("bootstrap.servers", "hadoop105:9092");
 
         pros.setProperty("group.id", "test");
         pros.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("auto.offset.reset", "latest");
-        FlinkKafkaConsumer010<String> consumer = new FlinkKafkaConsumer010<>
+        FlinkKafkaConsumer010<String> consumerPayMoney = new FlinkKafkaConsumer010<>
                 (
-                        "memberpaymoney",
-//                        params.get(TOPIC),
+//                        "memberpaymoney",
+                        params.get(TOPIC),
                         new SimpleStringSchema(),
                         pros);
 
-//        consumer.setStartFromTimestamp(Long.parseLong(Long.valueOf(START_FROMTIMESTAMP)+"L"));   //从kafka的何时时间点进行消费
+        SingleOutputStreamOperator<String> name =
+                env.addSource(new FlinkKafkaConsumer010<>("test", new SimpleStringSchema(), pros)).name("TestSource").setParallelism(2);
 
-        DataStreamSource<String> sourceDs = env.addSource(consumer);
+         name.map(
+                new MapFunction<String, Object>() {
+                    @Override
+                    public Object map(String s) throws Exception {
+                        System.out.println(s + "测试输出流");
+                        return null;
+                    }
+                }
+        ).name("Test_Map");
+
+
+//        consumerPayMoney.setStartFromTimestamp(Long.parseLong(Long.valueOf(START_FROMTIMESTAMP)+"L"));   //从kafka的何时时间点进行消费
+
+
+
+        DataStreamSource<String> sourceDs = env.addSource(consumerPayMoney);
         String sql = "insert into dataCollectionTest values(?,?,?,?,?,?,?,?)";
 
 //        SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.flatMap(
@@ -142,7 +154,7 @@ public class To_CK {
                         return payMoney;
                     }
                 }
-        ).setParallelism(2).name("Transform JavaBean");
+        ).setParallelism(4).name("Transform JavaBean");
 
 
         try {
@@ -159,9 +171,10 @@ public class To_CK {
                     .build(),
                                                     new JdbcConnectionOptions
                                                     .JdbcConnectionOptionsBuilder()
-                                                    .withUrl("jdbc:clickhouse://hadoop105:8123/default")
-                                                    //.withUrl("jdbc:clickhouse://101.37.247.143:8123/"+params.get(DATABASE))
+//                                                    .withUrl("jdbc:clickhouse://hadoop105:8123/default")
+                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/"+params.get(DATABASE))
 //                                                    .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
+//                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/default")
                                                     .withUsername("")
                                                     .withPassword("")
                                                     .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
