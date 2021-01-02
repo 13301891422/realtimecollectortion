@@ -9,11 +9,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-<!--        <dependency>-->
-<!--            <groupId>org.apache.flink</groupId>-->
-<!--            <artifactId>flink-clients_2.11</artifactId>-->
-<!--            <version>1.10.0</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-clients_2.11</artifactId>
+            <version>1.12.0</version>
+        </dependency>
 
         <!--flink和kafka连接的依赖，因为flink要去连接kafka-->
         <dependency>

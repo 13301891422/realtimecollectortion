@@ -59,7 +59,7 @@ public class To_CK {
     public static String SQL = "sql";
     public static String DATABASE = "database";
     public static String START_FROMTIMESTAMP = "start_fromtimestamp";
-    public static final Logger log = LoggerFactory.getLogger(To_CK.class);
+    public static final  Logger log = LoggerFactory.getLogger(To_CK.class);
 
     public static void main(String[] args) {
         //从命令行获取参数
@@ -74,34 +74,47 @@ public class To_CK {
 //        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);//Table Env 环境
         //从Kafka读取数据
         Properties pros = new Properties();
-        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
-        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
+//        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
+//        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
 //        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
-//          pros.setProperty("bootstrap.servers", "hadoop105:9092");
-
-        pros.setProperty("group.id", "test");
-        pros.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        pros.setProperty("bootstrap.servers", "hadoop105:9092");
+        pros.setProperty("group.id", "memberpaymoney_group");
+        pros.setProperty("key.deserializer",   "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("auto.offset.reset", "latest");
+
+        Properties pros_test = new Properties();
+//        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
+//        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
+//        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
+        pros_test.setProperty("bootstrap.servers", "hadoop105:9092");
+        pros_test.setProperty("group.id", "test_group");
+        pros_test.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        pros_test.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        pros_test.setProperty("auto.offset.reset", "latest");
+
         FlinkKafkaConsumer010<String> consumerPayMoney = new FlinkKafkaConsumer010<>
                 (
-//                        "memberpaymoney",
-                        params.get(TOPIC),
+                        "memberpaymoney",
+//                        params.get(TOPIC),
                         new SimpleStringSchema(),
                         pros);
 
-        SingleOutputStreamOperator<String> name =
-                env.addSource(new FlinkKafkaConsumer010<>("test", new SimpleStringSchema(), pros)).name("TestSource").setParallelism(2);
 
-         name.map(
-                new MapFunction<String, Object>() {
-                    @Override
-                    public Object map(String s) throws Exception {
-                        System.out.println(s + "测试输出流");
-                        return null;
+
+                        SingleOutputStreamOperator<String> name =
+                                env.addSource(new FlinkKafkaConsumer010<>
+                                        ("test", new SimpleStringSchema(), pros_test)).name("TestSource").setParallelism(2);
+
+                        name.map(
+                                new MapFunction<String, Object>() {
+                                    @Override
+                                    public Object map(String s) throws Exception {
+                                        System.out.println(s + "测试输出流");
+                                        return null;
                     }
                 }
-        ).name("Test_Map");
+        ).name("Test_Map").setParallelism(4);
 
 
 //        consumerPayMoney.setStartFromTimestamp(Long.parseLong(Long.valueOf(START_FROMTIMESTAMP)+"L"));   //从kafka的何时时间点进行消费
@@ -163,16 +176,17 @@ public class To_CK {
                     .sink(
                     //                              params.get(SQL),
                     sql,
-                    new CkSinkBuilder(), new JdbcExecutionOptions
+                    new CkSinkBuilder(),
+                    new JdbcExecutionOptions
                     .Builder()
-                    .withBatchSize(10000)      //批量写入的条数
+                    .withBatchSize(30000)      //批量写入的条数
 //                   .withBatchIntervalMs(10000L)//批量写入的时间间隔/ms
                     .withMaxRetries(1)         //插入重试次数
                     .build(),
                                                     new JdbcConnectionOptions
                                                     .JdbcConnectionOptionsBuilder()
-//                                                    .withUrl("jdbc:clickhouse://hadoop105:8123/default")
-                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/"+params.get(DATABASE))
+                                                    .withUrl("jdbc:clickhouse://hadoop105:8123/default")
+//                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/"+params.get(DATABASE))
 //                                                    .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
 //                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/default")
                                                     .withUsername("")
@@ -183,8 +197,9 @@ public class To_CK {
                     ).name("ToClickHouse");
             env.execute("输出ClickHouse");
         } catch (Exception e) {
-            log.error("数据入库异常！！ { }请检查ClickHouse服务是否异常");
-            MailUtil.sendFailMail();
+//            log.error("数据入库异常！！ { }请检查ClickHouse服务是否异常");
+//            MailUtil.sendFailMail();
+            e.printStackTrace();
         }
     }
 }
