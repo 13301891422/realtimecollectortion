@@ -18,7 +18,7 @@ import javax.mail.internet.MimeMessage.RecipientType;
 
 public class MailUtil {
 
-    public static void sendFailMail() {
+    public static void sendFailMail(String Message) {
         // 创建Properties 类用于记录邮箱的一些属性
         Properties props = new Properties();
         // 表示SMTP发送邮件，必须进行身份验证
@@ -55,10 +55,10 @@ public class MailUtil {
             message.setRecipient(RecipientType.TO, to);
 
             // 设置邮件标题
-            message.setSubject("则一速达实时入库任务失败");
+            message.setSubject("实时采集任务失败");
 
             // 设置邮件的内容体
-            message.setContent("则一速达实时入库任务失败，请检查ClikHouse服务是否宕机,以及源头数据是否存在问题",
+            message.setContent(message,
                     "text/html;charset=UTF-8");
             // 最后当然就是发送邮件啦
             Transport.send(message);

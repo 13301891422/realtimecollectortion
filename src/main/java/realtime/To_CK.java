@@ -1,6 +1,7 @@
 package realtime;
 
 import bean.PayMoney;
+import bean.ZeyiDriver;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.api.common.functions.FlatMapFunction;
@@ -25,30 +26,30 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Properties;
 
-class CkSinkBuilder implements JdbcStatementBuilder<PayMoney> {
+class CkSinkBuilder implements JdbcStatementBuilder<ZeyiDriver> {
+
 
     @Override
-    public void accept(PreparedStatement ps, PayMoney payMoney) throws SQLException {
-        if (null != payMoney.getUid()) {
-            ps.setString(1, payMoney.getUid());
-        } else {
-            ps.setString(1, "");
-        }
-        if (null != payMoney.getPaymoney()) {
-            ps.setString(2, payMoney.getPaymoney());
-        } else {
-            ps.setString(2, "");
-        }
-        ps.setString(3, payMoney.getVip_id());
-        if (null != payMoney.getUpdatetime()) {
-            ps.setString(4, payMoney.getUpdatetime());
-        } else {
-            ps.setString(4, "");
-        }
-        ps.setString(5, payMoney.getSiteid());
-        ps.setString(6, payMoney.getDt());
-        ps.setString(7, payMoney.getDn());
-        ps.setString(8, payMoney.getCreatetime());
+    public void accept(PreparedStatement ps, ZeyiDriver zeyiDriver) throws SQLException {
+        if (null != zeyiDriver.getDeviceId()) {ps.setString(1,  zeyiDriver.getDeviceId());} else {ps.setString(1, ""); }
+        if (null != zeyiDriver.getDeviceModel()) {ps.setString(2,  zeyiDriver.getDeviceModel());} else {ps.setString(2, ""); }
+        if (null != zeyiDriver.getDeviceName()) {ps.setString(3,  zeyiDriver.getDeviceName());} else {ps.setString(3, ""); }
+        if (null != zeyiDriver.getOperator()) {ps.setString(4,  zeyiDriver.getOperator());} else {ps.setString(4, ""); }
+        if (null != zeyiDriver.getConnectionType()) {ps.setString(5,  zeyiDriver.getConnectionType());} else {ps.setString(5, ""); }
+        if (null != zeyiDriver.getSystemType()) {ps.setString(6,  zeyiDriver.getSystemType());} else {ps.setString(6, ""); }
+        if (null != zeyiDriver.getSystemVersion()) {ps.setString(7,  zeyiDriver.getSystemVersion());} else {ps.setString(7, ""); }
+        if (null != zeyiDriver.getAppName()) {ps.setString(8,  zeyiDriver.getAppName());} else {ps.setString(8, ""); }
+        if (null != zeyiDriver.getAppVersion()) {ps.setString(9,  zeyiDriver.getAppVersion());} else {ps.setString(9, ""); }
+        if (null != zeyiDriver.getUserId()) {ps.setString(10, zeyiDriver.getUserId());} else {ps.setString(10, ""); }
+        if (null != zeyiDriver.getPageName()) {ps.setString(11, zeyiDriver.getPageName());} else {ps.setString(11, ""); }
+        if (null != zeyiDriver.getEventType()) {ps.setString(12, zeyiDriver.getEventType());} else {ps.setString(12, ""); }
+        if (null != zeyiDriver.getButtonName()) {ps.setString(13, zeyiDriver.getButtonName());} else {ps.setString(13, ""); }
+        if (null != zeyiDriver.getCreateTime()) {ps.setString(14, zeyiDriver.getCreateTime());} else {ps.setString(14, ""); }
+        if (null != zeyiDriver.getId()) {ps.setString(15, zeyiDriver.getId());} else {ps.setString(15, ""); }
+        if (null != zeyiDriver.getBrowser()) {ps.setString(16, zeyiDriver.getBrowser());} else {ps.setString(16, ""); }
+        if (null != zeyiDriver.getIpadress()) {ps.setString(17, zeyiDriver.getIpadress());} else {ps.setString(17, ""); }
+        if (null != zeyiDriver.getGPSadress()) {ps.setString(18, zeyiDriver.getGPSadress());} else {ps.setString(18, ""); }
+        if (null != zeyiDriver.getDingding_user_code()) {ps.setString(19, zeyiDriver.getDingding_user_code());} else {ps.setString(19, ""); }
     }
 }
 
@@ -58,7 +59,6 @@ public class To_CK {
     public static String TOPIC = "topic";
     public static String SQL = "sql";
     public static String DATABASE = "database";
-    public static String START_FROMTIMESTAMP = "start_fromtimestamp";
     public static final Logger log = LoggerFactory.getLogger(To_CK.class);
 
     public static void main(String[] args) {
@@ -74,87 +74,72 @@ public class To_CK {
 //        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);//Table Env 环境
         //从Kafka读取数据
         Properties pros = new Properties();
-        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
-        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
-//        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
+//        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
+//        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
+        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
 //          pros.setProperty("bootstrap.servers", "hadoop105:9092");
 
         pros.setProperty("group.id", "test");
         pros.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("auto.offset.reset", "latest");
-        FlinkKafkaConsumer010<String> consumerPayMoney = new FlinkKafkaConsumer010<>
+        FlinkKafkaConsumer010<String> consumerZeyiDriver = new FlinkKafkaConsumer010<>
                 (
-//                        "memberpaymoney",
-                        params.get(TOPIC),
+                        "zeyidriver",
+//                        params.get(TOPIC),
                         new SimpleStringSchema(),
                         pros);
 
-        SingleOutputStreamOperator<String> name =
-                env.addSource(new FlinkKafkaConsumer010<>("test", new SimpleStringSchema(), pros)).name("TestSource").setParallelism(2);
+//        consumerZeyiDriver.setStartFromTimestamp();   //从kafka的何时时间点进行消费
 
-         name.map(
-                new MapFunction<String, Object>() {
+        DataStreamSource<String> sourceDs = env.addSource(consumerZeyiDriver);
+        String sql = "insert into ZeyiDriver values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+        SingleOutputStreamOperator<ZeyiDriver> mapDStream = sourceDs.flatMap(
+                new FlatMapFunction<String, ZeyiDriver>() {
                     @Override
-                    public Object map(String s) throws Exception {
-                        System.out.println(s + "测试输出流");
-                        return null;
+                    public void flatMap(String ZeyiDriverArray, Collector<ZeyiDriver> out) throws Exception {
+                        try {
+                            JSONArray zeyiDriverJsonArray = JSONArray.parseArray(ZeyiDriverArray);
+                            for (int i = 0; i < zeyiDriverJsonArray.size(); i++) {
+                                JSONObject zeyiDriverJson = zeyiDriverJsonArray.getJSONObject(i);
+                                ZeyiDriver zeyiDriver = zeyiDriverJson.toJavaObject(ZeyiDriver.class);
+                                out.collect(zeyiDriver);
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            log.error("源头kafka数据异常,请检查数据格式！！  " + "数据为: " + ZeyiDriverArray );
+                        }
                     }
                 }
-        ).name("Test_Map");
+        ).name("FlatMapFunction");
 
 
-//        consumerPayMoney.setStartFromTimestamp(Long.parseLong(Long.valueOf(START_FROMTIMESTAMP)+"L"));   //从kafka的何时时间点进行消费
-
-
-
-        DataStreamSource<String> sourceDs = env.addSource(consumerPayMoney);
-        String sql = "insert into dataCollectionTest values(?,?,?,?,?,?,?,?)";
-
-//        SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.flatMap(
-//                new FlatMapFunction<String, PayMoney>() {
+//        SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.map(
+//                new MapFunction<String, PayMoney>() {
 //                    @Override
-//                    public void flatMap(String payMoneyArray, Collector<PayMoney> out) throws Exception {
-//                        try {
-//                            JSONArray payMoneyJsonArray = JSONArray.parseArray(payMoneyArray);
-//                            for (int i = 0; i < payMoneyJsonArray.size(); i++) {
-//                                JSONObject payMoneyJson = payMoneyJsonArray.getJSONObject(i);
-//                                PayMoney payMoney = payMoneyJson.toJavaObject(PayMoney.class);
-//                                out.collect(payMoney);
-//                            }
-//                        } catch (Exception e) {
-//                            log.error("源头kafka数据异常,请检查数据格式！！  " + "数据为: " + payMoneyArray);
-//                        }
+//                    public PayMoney map(String value) throws Exception {
+//                        JSONObject payMoneyJson = ParseJsonData.getJsonData(value);
+////                            PayMoney payMoney = new PayMoney();
+////                            try {
+////                                payMoney.setUid(payMoneyJson.getString("uid"));
+////                                payMoney.setPaymoney(payMoneyJson.getString("paymoney"));
+////                                payMoney.setVip_id(payMoneyJson.getString("vip_id"));
+////                                payMoney.setUpdatetime(payMoneyJson.getString("updatetime"));
+////                                payMoney.setSiteid(payMoneyJson.getString("siteid"));
+////                                payMoney.setDt(payMoneyJson.getString("dt"));
+////                                payMoney.setDn(payMoneyJson.getString("dn"));
+////                                payMoney.setCreatetime(payMoneyJson.getString("createtime"));
+////                                System.out.println(payMoney.toString());
+////                            } catch (Exception e) {
+////                                log.error("kafka输入数据异常");
+////                            }
+//                        PayMoney payMoney = payMoneyJson.toJavaObject(PayMoney.class);
+//                        System.out.println(payMoney.toString());
+//                        return payMoney;
 //                    }
 //                }
-//        ).name("FlatMapFunction");
-
-
-        SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.map(
-                new MapFunction<String, PayMoney>() {
-                    @Override
-                    public PayMoney map(String value) throws Exception {
-                        JSONObject payMoneyJson = ParseJsonData.getJsonData(value);
-//                            PayMoney payMoney = new PayMoney();
-//                            try {
-//                                payMoney.setUid(payMoneyJson.getString("uid"));
-//                                payMoney.setPaymoney(payMoneyJson.getString("paymoney"));
-//                                payMoney.setVip_id(payMoneyJson.getString("vip_id"));
-//                                payMoney.setUpdatetime(payMoneyJson.getString("updatetime"));
-//                                payMoney.setSiteid(payMoneyJson.getString("siteid"));
-//                                payMoney.setDt(payMoneyJson.getString("dt"));
-//                                payMoney.setDn(payMoneyJson.getString("dn"));
-//                                payMoney.setCreatetime(payMoneyJson.getString("createtime"));
-//                                System.out.println(payMoney.toString());
-//                            } catch (Exception e) {
-//                                log.error("kafka输入数据异常");
-//                            }
-                        PayMoney payMoney = payMoneyJson.toJavaObject(PayMoney.class);
-                        System.out.println(payMoney.toString());
-                        return payMoney;
-                    }
-                }
-        ).setParallelism(4).name("Transform JavaBean");
+//        ).setParallelism(4).name("Transform JavaBean");
 
 
         try {
@@ -165,16 +150,16 @@ public class To_CK {
                     sql,
                     new CkSinkBuilder(), new JdbcExecutionOptions
                     .Builder()
-                    .withBatchSize(10000)      //批量写入的条数
+                    .withBatchSize(5)      //批量写入的条数
 //                   .withBatchIntervalMs(10000L)//批量写入的时间间隔/ms
                     .withMaxRetries(1)         //插入重试次数
                     .build(),
                                                     new JdbcConnectionOptions
                                                     .JdbcConnectionOptionsBuilder()
 //                                                    .withUrl("jdbc:clickhouse://hadoop105:8123/default")
-                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/"+params.get(DATABASE))
+//                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/"+params.get(DATABASE))
 //                                                    .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
-//                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/default")
+                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/default")
                                                     .withUsername("")
                                                     .withPassword("")
                                                     .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
@@ -184,7 +169,7 @@ public class To_CK {
             env.execute("输出ClickHouse");
         } catch (Exception e) {
             log.error("数据入库异常！！ { }请检查ClickHouse服务是否异常");
-            MailUtil.sendFailMail();
+            MailUtil.sendFailMail("则一速达埋点数据入库异常 请检查ClickHouse服务是否异常！！！");
         }
     }
 }
