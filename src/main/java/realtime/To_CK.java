@@ -28,9 +28,9 @@ import java.util.Properties;
 
 class CkSinkBuilder implements JdbcStatementBuilder<ZeyiDriver> {
 
-
     @Override
     public void accept(PreparedStatement ps, ZeyiDriver zeyiDriver) throws SQLException {
+        //判null赋空字符串操作
         if (null != zeyiDriver.getDeviceId()) {ps.setString(1,  zeyiDriver.getDeviceId());} else {ps.setString(1, ""); }
         if (null != zeyiDriver.getDeviceModel()) {ps.setString(2,  zeyiDriver.getDeviceModel());} else {ps.setString(2, ""); }
         if (null != zeyiDriver.getDeviceName()) {ps.setString(3,  zeyiDriver.getDeviceName());} else {ps.setString(3, ""); }
@@ -60,112 +60,66 @@ public class To_CK {
     public static String SQL = "sql";
     public static String DATABASE = "database";
     public static final Logger log = LoggerFactory.getLogger(To_CK.class);
-
     public static void main(String[] args) {
         //从命令行获取参数
         ParameterTool params = ParameterTool.fromArgs(args);
         //获得环境
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
         //设置程序失败自动重启策略
-//        env.setRestartStrategy(RestartStrategies.fixedDelayRestart(5, 3000l));
+        env.setRestartStrategy(RestartStrategies.fixedDelayRestart(5, 3000l));
         env.getConfig().setGlobalJobParameters(params);
         env.setParallelism(2); //设置并发为1，防止打印控制台乱序
-//        env.setStreamTimeCharacteristic(TimeCharacteristic.EventTime); //Flink 默认使用 ProcessingTime 处理,设置成event time
-//        StreamTableEnvironment tEnv = StreamTableEnvironment.create(env);//Table Env 环境
         //从Kafka读取数据
         Properties pros = new Properties();
-//        pros.setProperty(BOOTSTRAP_SERVERS, params.get(BOOTSTRAP_SERVERS));
-//        pros.setProperty(GROUP_ID, params.get(GROUP_ID));
-        pros.setProperty("bootstrap.servers", "192.168.20.27:9092");
-//          pros.setProperty("bootstrap.servers", "hadoop105:9092");
-
-        pros.setProperty("group.id", "test");
+        pros.setProperty("bootstrap.servers", "collector101:9092,collector102:9092");
+        pros.setProperty("group.id", "test_zeyiDriver_group");
         pros.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         pros.setProperty("auto.offset.reset", "latest");
-        FlinkKafkaConsumer010<String> consumerZeyiDriver = new FlinkKafkaConsumer010<>
-                (
-                        "zeyidriver",
-//                        params.get(TOPIC),
-                        new SimpleStringSchema(),
-                        pros);
+        FlinkKafkaConsumer010<String> consumerZeyiDriver = new FlinkKafkaConsumer010<>("test", new SimpleStringSchema(), pros);
 
 //        consumerZeyiDriver.setStartFromTimestamp();   //从kafka的何时时间点进行消费
 
-        DataStreamSource<String> sourceDs = env.addSource(consumerZeyiDriver);
+        DataStreamSource<String> sourceDs = env.addSource(consumerZeyiDriver).setParallelism(1);
         String sql = "insert into ZeyiDriver values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
         SingleOutputStreamOperator<ZeyiDriver> mapDStream = sourceDs.flatMap(
-                new FlatMapFunction<String, ZeyiDriver>() {
-                    @Override
-                    public void flatMap(String ZeyiDriverArray, Collector<ZeyiDriver> out) throws Exception {
-                        try {
-                            JSONArray zeyiDriverJsonArray = JSONArray.parseArray(ZeyiDriverArray);
-                            for (int i = 0; i < zeyiDriverJsonArray.size(); i++) {
-                                JSONObject zeyiDriverJson = zeyiDriverJsonArray.getJSONObject(i);
-                                ZeyiDriver zeyiDriver = zeyiDriverJson.toJavaObject(ZeyiDriver.class);
-                                out.collect(zeyiDriver);
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            log.error("源头kafka数据异常,请检查数据格式！！  " + "数据为: " + ZeyiDriverArray );
+                (FlatMapFunction<String, ZeyiDriver>) (ZeyiDriverArray, out) -> {
+                    try {
+                        JSONArray zeyiDriverJsonArray = JSONArray.parseArray(ZeyiDriverArray);
+                        for (int i = 0; i < zeyiDriverJsonArray.size(); i++) {
+                            JSONObject zeyiDriverJson = zeyiDriverJsonArray.getJSONObject(i);
+                            ZeyiDriver zeyiDriver = zeyiDriverJson.toJavaObject(ZeyiDriver.class);
+                            out.collect(zeyiDriver);
                         }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        log.error("源头kafka数据异常,请检查数据格式！！  " + "数据为: " + ZeyiDriverArray );
                     }
                 }
-        ).name("FlatMapFunction");
-
-
-//        SingleOutputStreamOperator<PayMoney> mapDStream = sourceDs.map(
-//                new MapFunction<String, PayMoney>() {
-//                    @Override
-//                    public PayMoney map(String value) throws Exception {
-//                        JSONObject payMoneyJson = ParseJsonData.getJsonData(value);
-////                            PayMoney payMoney = new PayMoney();
-////                            try {
-////                                payMoney.setUid(payMoneyJson.getString("uid"));
-////                                payMoney.setPaymoney(payMoneyJson.getString("paymoney"));
-////                                payMoney.setVip_id(payMoneyJson.getString("vip_id"));
-////                                payMoney.setUpdatetime(payMoneyJson.getString("updatetime"));
-////                                payMoney.setSiteid(payMoneyJson.getString("siteid"));
-////                                payMoney.setDt(payMoneyJson.getString("dt"));
-////                                payMoney.setDn(payMoneyJson.getString("dn"));
-////                                payMoney.setCreatetime(payMoneyJson.getString("createtime"));
-////                                System.out.println(payMoney.toString());
-////                            } catch (Exception e) {
-////                                log.error("kafka输入数据异常");
-////                            }
-//                        PayMoney payMoney = payMoneyJson.toJavaObject(PayMoney.class);
-//                        System.out.println(payMoney.toString());
-//                        return payMoney;
-//                    }
-//                }
-//        ).setParallelism(4).name("Transform JavaBean");
-
+        ).name("FlatMapFunction").setParallelism(2);
 
         try {
             mapDStream
                     .addSink(JdbcSink
-                    .sink(
-                    //                              params.get(SQL),
-                    sql,
-                    new CkSinkBuilder(), new JdbcExecutionOptions
-                    .Builder()
-                    .withBatchSize(5)      //批量写入的条数
-//                   .withBatchIntervalMs(10000L)//批量写入的时间间隔/ms
-                    .withMaxRetries(1)         //插入重试次数
-                    .build(),
-                                                    new JdbcConnectionOptions
+                                    .sink(
+//                                            params.get(SQL),
+                                            sql,
+                                            new CkSinkBuilder(), new JdbcExecutionOptions
+                                                    .Builder()
+                                                    .withBatchSize(300)      //批量写入的条数
+                                                    .withBatchIntervalMs(180000L)//批量写入的时间间隔/ms
+                                                    .withMaxRetries(5)         //插入重试次数
+                                                    .build(),
+                                            new JdbcConnectionOptions
                                                     .JdbcConnectionOptionsBuilder()
-//                                                    .withUrl("jdbc:clickhouse://hadoop105:8123/default")
-//                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/"+params.get(DATABASE))
-//                                                    .withUrl("jdbc:clickhouse://101.37.247.143:8123/default")
-                                                    .withUrl("jdbc:clickhouse://47.111.10.168:8123/default")
+                                                    .withUrl("jdbc:clickhouse://172.16.182.181:8123/default")
                                                     .withUsername("")
                                                     .withPassword("")
                                                     .withDriverName("ru.yandex.clickhouse.ClickHouseDriver")
                                                     .build()
                                     )
-                    ).name("ToClickHouse");
+                    ).name("ToClickHouse").setParallelism(4);
             env.execute("输出ClickHouse");
         } catch (Exception e) {
             log.error("数据入库异常！！ { }请检查ClickHouse服务是否异常");
