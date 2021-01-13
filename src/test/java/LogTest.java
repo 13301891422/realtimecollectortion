@@ -9,7 +9,7 @@ import realtime.To_CK;
  */
 public class LogTest {
     public static void main(String[] args) {
-         final Logger log = LoggerFactory.getLogger(To_CK.class);
-            log.error("heha");
+        final Logger log = LoggerFactory.getLogger(To_CK.class);
+        log.error("heha");
     }
 }

@@ -1,20 +1,16 @@
-package realtime;
-
 /**
  * @author xuweiwei
  * @version 1.0
  * @todo 2020/12/23 17:44:47
  */
 import bean.PayMoney;
+import flinktohbase.DataSourceUtil;
 import org.apache.commons.lang.StringUtils;
 import org.apache.flink.configuration.Configuration;
 import org.apache.flink.streaming.api.functions.sink.RichSinkFunction;
-import org.apache.flink.types.Row;
-import util.DataSourceUtil;
-import util.StrUtils;
+
 import java.sql.*;
 import java.io.Serializable;
-import java.lang.reflect.Field;
 import java.util.*;
 
 public class ClickhouseSink extends RichSinkFunction<PayMoney> implements Serializable {

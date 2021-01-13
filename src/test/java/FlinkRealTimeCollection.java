@@ -1,5 +1,3 @@
-package realtime;
-
 import bean.PayMoney;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.flink.api.common.functions.MapFunction;
